@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1801D38B1C1E8DD700CCD31E /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801D38A1C1E8DD700CCD31E /* SideMenuViewController.swift */; };
+		1801D38D1C1E8E3600CCD31E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801D38C1C1E8E3600CCD31E /* TabBarViewController.swift */; };
+		1801D3901C1E96FD00CCD31E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801D38F1C1E96FD00CCD31E /* User.swift */; };
+		1801D3921C1E992900CCD31E /* Forum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801D3911C1E992900CCD31E /* Forum.swift */; };
+		1801D3941C1E99FA00CCD31E /* ForumChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801D3931C1E99FA00CCD31E /* ForumChild.swift */; };
 		188CF74D1C1C3122006B7537 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188CF74C1C1C3122006B7537 /* AppDelegate.swift */; };
 		188CF7521C1C3122006B7537 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188CF7501C1C3122006B7537 /* Main.storyboard */; };
 		188CF7541C1C3122006B7537 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 188CF7531C1C3122006B7537 /* Assets.xcassets */; };
@@ -51,6 +56,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1801D38A1C1E8DD700CCD31E /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		1801D38C1C1E8E3600CCD31E /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		1801D38F1C1E96FD00CCD31E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1801D3911C1E992900CCD31E /* Forum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forum.swift; sourceTree = "<group>"; };
+		1801D3931C1E99FA00CCD31E /* ForumChild.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumChild.swift; sourceTree = "<group>"; };
 		188CF7491C1C3122006B7537 /* waterbbs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = waterbbs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		188CF74C1C1C3122006B7537 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		188CF7511C1C3122006B7537 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -126,6 +136,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1801D3891C1E8DC700CCD31E /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				1801D38A1C1E8DD700CCD31E /* SideMenuViewController.swift */,
+				1801D38C1C1E8E3600CCD31E /* TabBarViewController.swift */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		1801D38E1C1E96EC00CCD31E /* model */ = {
+			isa = PBXGroup;
+			children = (
+				1801D38F1C1E96FD00CCD31E /* User.swift */,
+				1801D3911C1E992900CCD31E /* Forum.swift */,
+				1801D3931C1E99FA00CCD31E /* ForumChild.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 		188CF7401C1C3122006B7537 = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +227,7 @@
 		188CF77C1C1C31C0006B7537 /* side */ = {
 			isa = PBXGroup;
 			children = (
+				1801D3891C1E8DC700CCD31E /* controller */,
 			);
 			name = side;
 			sourceTree = "<group>";
@@ -317,6 +347,7 @@
 		18A8E94D1C1D8C7600C7CB92 /* httptool */ = {
 			isa = PBXGroup;
 			children = (
+				1801D38E1C1E96EC00CCD31E /* model */,
 				18A8E94E1C1D8C9F00C7CB92 /* HttpTool.swift */,
 			);
 			name = httptool;
@@ -528,16 +559,21 @@
 				188CF7B61C1C51C8006B7537 /* MainNavViewController.swift in Sources */,
 				188CF7B11C1C4A9D006B7537 /* UINavigationBar+Awesome.m in Sources */,
 				188CF7AE1C1C4A81006B7537 /* ParallaxHeaderView.m in Sources */,
+				1801D38D1C1E8E3600CCD31E /* TabBarViewController.swift in Sources */,
 				188CF79B1C1C3F4C006B7537 /* UIView+SDExtension.m in Sources */,
 				188CF7951C1C3F4C006B7537 /* TAAbstractDotView.m in Sources */,
 				188CF79A1C1C3F4C006B7537 /* SDCycleScrollView.m in Sources */,
 				188CF79F1C1C40EA006B7537 /* myUILabel.m in Sources */,
+				1801D3941C1E99FA00CCD31E /* ForumChild.swift in Sources */,
 				188CF7941C1C3F4C006B7537 /* NSData+SDDataCache.m in Sources */,
 				188CF7961C1C3F4C006B7537 /* TAAnimatedDotView.m in Sources */,
 				188CF74D1C1C3122006B7537 /* AppDelegate.swift in Sources */,
 				18A8E94F1C1D8C9F00C7CB92 /* HttpTool.swift in Sources */,
 				188CF7991C1C3F4C006B7537 /* SDCollectionViewCell.m in Sources */,
+				1801D38B1C1E8DD700CCD31E /* SideMenuViewController.swift in Sources */,
 				188CF7A31C1C4104006B7537 /* SWRevealViewController.m in Sources */,
+				1801D3901C1E96FD00CCD31E /* User.swift in Sources */,
+				1801D3921C1E992900CCD31E /* Forum.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

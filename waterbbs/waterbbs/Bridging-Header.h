@@ -11,4 +11,5 @@
 #import "UINavigationBar+Awesome.h" //可以透明bar
 #import "SDCycleScrollView.h"   //图片轮播
 #import "ParallaxHeaderView.h"  //拉伸变大
+#import "SWRevealViewController.h" //滑动侧栏
 #endif /* Bridging_Header_h */

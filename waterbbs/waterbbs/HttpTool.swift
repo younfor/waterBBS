@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-// 主要处理网络后台接口数据调用
+// 主要处理网络后台接口数据调用的
 class HttpTool: NSObject {
     // 一些公共参数
     var accessToken:String! = "b72642d1ab2825cafcda5bd23027e"
@@ -28,12 +28,17 @@ class HttpTool: NSObject {
     // 登陆
     func login(username:String,password:String,onSuccess:(() -> Void)?=nil, onFail:((String) -> Void)?=nil) {
         self.httpPost(self.baseUrl + self.loginUrl, params: ["username":username,"password":password], withLogin: false, onSuccess: { (data) -> () in
-            
             print(data)
-            onSuccess?()
             // 存储用户数据
-            
-            // default user
+            User.getUser().accessToken = data["token"].string
+            User.getUser().accessSecret = data["secret"].string
+            User.getUser().userName = data["userName"].string
+            User.getUser().avatar = data["avatar"].string
+            guard User.getUser().save() else {
+                print("存储用户失败")
+                return
+            }
+            onSuccess?()
         }) { (error) -> () in
             onFail?("请求失败:" + error)
         }
@@ -44,8 +49,7 @@ class HttpTool: NSObject {
             print(data)
             onSuccess?()
             // 删除用户数据
-            
-            // default user
+            User.getUser().clear()
             }) { (error) -> () in
                 onFail?("请求失败:" + error)
         }
@@ -53,7 +57,12 @@ class HttpTool: NSObject {
     // 测试
     func test() {
         //self.login("cq361106306", password: "199288")
-        self.atuserlist()
+        //self.atuserlist()
+        if User.getUser().load() == false {
+            print("加载失败")
+        } else {
+            print(User.getUser().userName)
+        }
     }
     // 获取好友
     func atuserlist(onSuccess:(() -> Void)?=nil, onFail:((String) -> Void)?=nil) {
@@ -65,18 +74,11 @@ class HttpTool: NSObject {
             onFail?("请求失败:" + error)
         }
     }
-    // 判断是否登录
-    func isLogined() -> Bool {
-        //本地存储加载是否有
-        //没有则报错并重新跳转登录界面
-        //赋值给self.accessToken self.accessSecret
-        return true;
-    }
     // 网络公共函数
     func httpPost(url:String, var params:[String:AnyObject], withLogin:Bool, onSuccess:(JSON) -> Void, onFail:(String) -> Void) {
         if withLogin {
             // 判断是否登录
-            if !isLogined() {
+            if !User.getUser().load() {
                 print("非法获取数据")
                 return
             }

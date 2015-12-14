@@ -26,6 +26,12 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
         // 设置白色标题
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.titleTop.alpha = 0
+        //创建leftBarButtonItem以及添加手势识别
+        let leftButton = UIBarButtonItem(image: UIImage(named: "menu"), style: .Plain, target: self.revealViewController(), action: "revealToggle:")
+        leftButton.tintColor = UIColor.whiteColor()
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        self.navigationItem.setLeftBarButtonItem(leftButton, animated: false)
     }
     func initTopPicturesView() {
         // 初始化轮播图片
