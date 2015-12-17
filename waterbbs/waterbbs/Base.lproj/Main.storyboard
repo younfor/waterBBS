@@ -298,17 +298,44 @@
                                 <rect key="frame" x="-4" y="-20" width="328" height="588"/>
                                 <animations/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cq361106306" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gF1-SQ-TFN">
+                                <rect key="frame" x="33" y="102" width="147" height="20.5"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="147" id="a26-LV-fha"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xoQ-x0-N42">
+                                <rect key="frame" x="74" y="20" width="64" height="64"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.17999999999999999" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="UUH-hX-nhk"/>
+                                    <constraint firstAttribute="width" constant="64" id="yY1-n7-FPY"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ogz-WY-GrL" firstAttribute="leading" secondItem="o6v-mF-GhY" secondAttribute="leadingMargin" constant="-20" id="Cct-3z-xwv"/>
+                            <constraint firstItem="ogz-WY-GrL" firstAttribute="leading" secondItem="gF1-SQ-TFN" secondAttribute="trailing" constant="-184" id="FUb-oW-a3I"/>
                             <constraint firstItem="Ytj-ub-B2l" firstAttribute="top" secondItem="ogz-WY-GrL" secondAttribute="bottom" id="YLJ-QW-avx"/>
+                            <constraint firstItem="ogz-WY-GrL" firstAttribute="leading" secondItem="xoQ-x0-N42" secondAttribute="trailing" constant="-142" id="jnA-i9-G5C"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ogz-WY-GrL" secondAttribute="trailing" constant="-20" id="muk-iI-X8L"/>
+                            <constraint firstItem="ogz-WY-GrL" firstAttribute="top" secondItem="xoQ-x0-N42" secondAttribute="bottom" constant="-104" id="pt4-3o-i8P"/>
+                            <constraint firstItem="gF1-SQ-TFN" firstAttribute="top" secondItem="xoQ-x0-N42" secondAttribute="bottom" constant="18" id="u3o-wW-A5Q"/>
                             <constraint firstItem="ogz-WY-GrL" firstAttribute="top" secondItem="o6v-mF-GhY" secondAttribute="topMargin" constant="-20" id="w2m-Nd-1Yn"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="headImage" destination="xoQ-x0-N42" id="flF-Xz-r93"/>
+                        <outlet property="userLabel" destination="gF1-SQ-TFN" id="qjL-I0-haF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7eQ-YB-4YP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

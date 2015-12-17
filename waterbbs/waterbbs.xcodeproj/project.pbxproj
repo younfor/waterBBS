@@ -12,6 +12,7 @@
 		1801D3901C1E96FD00CCD31E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801D38F1C1E96FD00CCD31E /* User.swift */; };
 		1801D3921C1E992900CCD31E /* Forum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801D3911C1E992900CCD31E /* Forum.swift */; };
 		1801D3941C1E99FA00CCD31E /* ForumChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801D3931C1E99FA00CCD31E /* ForumChild.swift */; };
+		18426F9E1C22D61B002C096E /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18426F9D1C22D61B002C096E /* Topic.swift */; };
 		188CF74D1C1C3122006B7537 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188CF74C1C1C3122006B7537 /* AppDelegate.swift */; };
 		188CF7521C1C3122006B7537 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188CF7501C1C3122006B7537 /* Main.storyboard */; };
 		188CF7541C1C3122006B7537 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 188CF7531C1C3122006B7537 /* Assets.xcassets */; };
@@ -61,6 +62,7 @@
 		1801D38F1C1E96FD00CCD31E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1801D3911C1E992900CCD31E /* Forum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forum.swift; sourceTree = "<group>"; };
 		1801D3931C1E99FA00CCD31E /* ForumChild.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumChild.swift; sourceTree = "<group>"; };
+		18426F9D1C22D61B002C096E /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		188CF7491C1C3122006B7537 /* waterbbs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = waterbbs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		188CF74C1C1C3122006B7537 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		188CF7511C1C3122006B7537 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				1801D38F1C1E96FD00CCD31E /* User.swift */,
 				1801D3911C1E992900CCD31E /* Forum.swift */,
 				1801D3931C1E99FA00CCD31E /* ForumChild.swift */,
+				18426F9D1C22D61B002C096E /* Topic.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -564,6 +567,7 @@
 				188CF7951C1C3F4C006B7537 /* TAAbstractDotView.m in Sources */,
 				188CF79A1C1C3F4C006B7537 /* SDCycleScrollView.m in Sources */,
 				188CF79F1C1C40EA006B7537 /* myUILabel.m in Sources */,
+				18426F9E1C22D61B002C096E /* Topic.swift in Sources */,
 				1801D3941C1E99FA00CCD31E /* ForumChild.swift in Sources */,
 				188CF7941C1C3F4C006B7537 /* NSData+SDDataCache.m in Sources */,
 				188CF7961C1C3F4C006B7537 /* TAAnimatedDotView.m in Sources */,

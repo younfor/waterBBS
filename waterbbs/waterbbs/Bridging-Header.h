@@ -12,4 +12,5 @@
 #import "SDCycleScrollView.h"   //图片轮播
 #import "ParallaxHeaderView.h"  //拉伸变大
 #import "SWRevealViewController.h" //滑动侧栏
+#import "SDWebImage/UIImageView+WebCache.h"
 #endif /* Bridging_Header_h */

@@ -10,10 +10,18 @@ import UIKit
 
 class SideMenuViewController: UIViewController {
 
+  @IBOutlet weak var userLabel: UILabel!
+  @IBOutlet weak var headImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+      print("显示侧边栏")
+      // 加载头像
+      if User.getUser().load() {
+        self.userLabel.text = User.getUser().userName
+        self.headImage.sd_setImageWithURL(NSURL.init(string: User.getUser().avatar!))
+      } else {
+        self.userLabel.text = "未登录"
+      }
     }
 
     override func didReceiveMemoryWarning() {
