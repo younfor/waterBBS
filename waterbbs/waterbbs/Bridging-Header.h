@@ -13,4 +13,5 @@
 #import "ParallaxHeaderView.h"  //拉伸变大
 #import "SWRevealViewController.h" //滑动侧栏
 #import "SDWebImage/UIImageView+WebCache.h"
+#import "NSString+Date.h"
 #endif /* Bridging_Header_h */

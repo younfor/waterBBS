@@ -25,8 +25,8 @@ class Topic: NSObject {
     self.title = data["title"].string
     self.subject = data["subject"].string
     self.userAvatar = data["userAvatar"].string
-    self.replies = data["replies"].string
-    self.hits = data["hits"].string
+    self.replies = String(data["replies"])
+    self.hits = String(data["hits"])
     self.imageList = data["imageList"].string
     self.last_reply_date = data["last_reply_date"].string
     self.pic_path = data["pic_path"].string

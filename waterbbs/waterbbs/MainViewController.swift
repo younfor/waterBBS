@@ -15,6 +15,9 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
     var lastTouchY:CGFloat = 0
     // 轮播图片
     var topPicturesView :SDCycleScrollView!
+    // tableview
+    lazy var topics = Array<Topic>()
+    let cell = "mainCell"
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
@@ -25,13 +28,26 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
         self.navigationController?.navigationBar.shadowImage = UIImage()
         // 设置白色标题
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        self.titleTop.alpha = 0
+        //self.titleTop.alpha = 0
         //创建leftBarButtonItem以及添加手势识别
         let leftButton = UIBarButtonItem(image: UIImage(named: "menu"), style: .Plain, target: self.revealViewController(), action: "revealToggle:")
         leftButton.tintColor = UIColor.whiteColor()
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         self.navigationItem.setLeftBarButtonItem(leftButton, animated: false)
+        //tableview
+        self.tableView.registerNib(UINib.init(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: self.cell)
+        self.tableView.rowHeight = 80
+        self.loadTopics()
+    }
+    func loadTopics() {
+      print("加载首页数据")
+      HttpTool.getHttpTool().topicList("61", page: 1, onSuccess: { (datas) -> Void in
+          self.topics.appendContentsOf(datas)
+          self.tableView.reloadData()
+        }) { (error) -> Void in
+          print(error)
+      }
     }
     func initTopPicturesView() {
         // 初始化轮播图片
@@ -61,7 +77,7 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
         }
         //Parallax效果
         let header = self.tableView.tableHeaderView as! ParallaxHeaderView
-        header.layoutHeaderViewForScrollViewOffset(scrollView.contentOffset)
+        //header.layoutHeaderViewForScrollViewOffset(scrollView.contentOffset)
         
         //NavBar及titleLabel透明度渐变
         let color = UIColor(red: 1/255.0, green: 131/255.0, blue: 230/255.0, alpha: 1)
@@ -77,15 +93,12 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
           return
         } else {
             self.navigationController?.navigationBar.lt_setBackgroundColor(color.colorWithAlphaComponent(0))
-            self.titleTop.alpha = 0
+            self.titleTop.alpha = 1
         }
         //tabBar
-        print("\(lastTouchY - offsetY),\(offsetY)")
         if offsetY > 0 && lastTouchY - offsetY < 0  {
-            print("需要显示")
             self.tabBarController?.tabBar.alpha = 0
         } else {
-            print("需要消失")
             self.tabBarController?.tabBar.alpha = 1
         }
         lastTouchY = offsetY
@@ -93,18 +106,13 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
     }
     // tableview
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return self.topics.count
      }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("mainCell")!
-        cell.textLabel?.text = "测试啊"
+        let cell:MainTableViewCell = tableView.dequeueReusableCellWithIdentifier(self.cell) as! MainTableViewCell
+        cell.setData(self.topics[indexPath.row])
         return cell
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+  
 
 }

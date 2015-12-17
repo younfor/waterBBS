@@ -26,7 +26,6 @@ class MainNavViewController: UINavigationController {
     }
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.nextResponder()!.touchesMoved(touches, withEvent: event)
-        print("爱爱")
     }
  
     /*
