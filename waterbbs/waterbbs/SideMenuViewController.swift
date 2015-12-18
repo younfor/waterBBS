@@ -10,6 +10,7 @@ import UIKit
 
 class SideMenuViewController: UIViewController {
 
+  @IBOutlet weak var tableview: UITableView!
   @IBOutlet weak var userLabel: UILabel!
   @IBOutlet weak var headImage: UIImageView!
     override func viewDidLoad() {

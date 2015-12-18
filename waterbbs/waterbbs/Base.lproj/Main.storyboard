@@ -101,12 +101,30 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dUi-dO-tvD">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupCell" textLabel="6lc-5R-ubJ" detailTextLabel="caU-bP-Oh0" style="IBUITableViewCellStyleValue1" id="dUi-dO-tvD">
                                 <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dUi-dO-tvD" id="H3O-ex-ixn">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6lc-5R-ubJ">
+                                            <rect key="frame" x="15" y="12" width="31.5" height="19.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="caU-bP-Oh0">
+                                            <rect key="frame" x="263.5" y="12" width="41.5" height="19.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
@@ -117,7 +135,28 @@
                             <outlet property="delegate" destination="HRl-5z-n7h" id="zL1-3x-gSG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="qNv-f2-spA"/>
+                    <navigationItem key="navigationItem" id="qNv-f2-spA">
+                        <nil key="title"/>
+                        <view key="titleView" contentMode="scaleToFill" id="DJd-fo-JqW">
+                            <rect key="frame" x="96" y="5.5" width="128" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="社区" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCN-7u-bGc">
+                                    <rect key="frame" x="47" y="6.5" width="34" height="20.5"/>
+                                    <animations/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <animations/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="UCN-7u-bGc" firstAttribute="centerY" secondItem="DJd-fo-JqW" secondAttribute="centerY" id="nJr-BE-h8q"/>
+                                <constraint firstItem="UCN-7u-bGc" firstAttribute="centerX" secondItem="DJd-fo-JqW" secondAttribute="centerX" id="whf-hs-cDS"/>
+                            </constraints>
+                        </view>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fWc-B1-fJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -127,7 +166,7 @@
         <!--社区-->
         <scene sceneID="JQs-yr-VWn">
             <objects>
-                <navigationController id="Mir-y1-5go" userLabel="社区" sceneMemberID="viewController">
+                <navigationController id="Mir-y1-5go" userLabel="社区" customClass="GroupNavViewController" customModule="waterbbs" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="社区" image="icon_group" selectedImage="icon_group_selected" id="14O-Gr-NWG"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sIo-1K-i7U">
@@ -296,7 +335,7 @@
                                 <rect key="frame" x="76" y="530" width="60" height="30"/>
                                 <animations/>
                                 <state key="normal" title="关于软件">
-                                    <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="vVv-hI-TQt" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="pcG-dd-MmD"/>
@@ -370,6 +409,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="headImage" destination="xoQ-x0-N42" id="flF-Xz-r93"/>
+                        <outlet property="tableview" destination="a7s-6Q-vvd" id="qFg-df-t16"/>
                         <outlet property="userLabel" destination="gF1-SQ-TFN" id="qjL-I0-haF"/>
                     </connections>
                 </viewController>

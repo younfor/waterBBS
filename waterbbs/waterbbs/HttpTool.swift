@@ -43,11 +43,15 @@ class HttpTool: NSObject {
         onFail?("请求失败:" + error)
     }
   }
-    // 获取板块列表
-  func forumList(onSuccess:(() -> Void)?=nil, onFail:((String) -> Void)?=nil) {
+    // 获取板块列表-(登陆/不登陆)
+  func forumList(onSuccess:((forums:Array<Forum>) -> Void)?=nil, onFail:((String) -> Void)?=nil) {
     self.httpPost(self.baseUrl + self.forumUrl, params: [:], withLogin: true, onSuccess: { (data) -> () in
-      print(data)
-      onSuccess?()
+      var forums = Array<Forum>()
+      for forum in data["list"] {
+        let f = Forum.init(data: forum.1)
+        forums.append(f)
+      }
+      onSuccess?(forums: forums)
       
       }) { (error) -> () in
         onFail?("请求失败:" + error)
@@ -92,7 +96,10 @@ class HttpTool: NSObject {
         //    print(User.getUser().userName)
         //}
       //self.topicPiclist()
-      self.topicList(self.myboardId, page: 1)
+      //self.topicList(self.myboardId, page: 1)
+      self.forumList({ (forum) -> Void in
+        print(forum)
+        }, onFail: nil)
     }
     // 获取好友
     func atuserlist(onSuccess:(() -> Void)?=nil, onFail:((String) -> Void)?=nil) {
