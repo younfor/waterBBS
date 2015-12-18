@@ -30,14 +30,14 @@ class MainTableViewCell: UITableViewCell {
       self.time.textColor = UIColor.grayColor()
     }
     self.count.text = "\(topic.user_nick_name)  人气 \(topic.hits)°"
-    //删除前缀
+    // 删除前缀
     let range = topic.title.rangeOfString("]")
     self.topicname.text = topic.title.substringFromIndex((range?.startIndex.advancedBy(1))!)
     self.topicDescripe.text = topic.subject
     let url = topic.pic_path
     if url != "" {
       self.pic.sd_setImageWithURL(NSURL.init(string:url!))
-      //print("有图")
+      picWidth.constant = 64
     } else {
       picWidth.constant = 0
       setNeedsUpdateConstraints()

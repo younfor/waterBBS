@@ -13,7 +13,7 @@ import SwiftyJSON
 // 主要处理网络后台接口数据调用的
 class HttpTool: NSObject {
     // 一些公共参数
-  let pageSize = 10
+  let pageSize = 20
     var accessToken:String! = "b72642d1ab2825cafcda5bd23027e"
     var accessSecret:String! = "7f55871fbbe423200ef1890910610"
     var avatar:String!
@@ -31,7 +31,7 @@ class HttpTool: NSObject {
     class func getHttpTool() -> HttpTool {
         return httpTool
     }
-  // 获取主题列表
+  // 获取主题列表-(登陆/不登陆)
   func topicList(boardId:String,page:Int,onSuccess:(([Topic]) -> Void)?=nil, onFail:((String) -> Void)?=nil) {
     self.httpPost(self.baseUrl + self.topicUrl, params: ["page":page,"boardId":boardId,"pageSize":self.pageSize], withLogin: true, onSuccess: { (data) -> () in
       var topics:Array = Array<Topic>()
@@ -39,7 +39,6 @@ class HttpTool: NSObject {
         topics.append(Topic.init(data: topicdata.1))
       }
       onSuccess?(topics)
-      
       }) { (error) -> () in
         onFail?("请求失败:" + error)
     }
@@ -121,7 +120,7 @@ class HttpTool: NSObject {
         if withLogin {
             // 判断是否登录
             if !User.getUser().load() {
-                print("非法获取数据")
+                print("尚未登陆，没有权限")
                 return
             }
             params["accessToken"] = self.accessToken

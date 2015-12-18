@@ -33,4 +33,12 @@ class Topic: NSObject {
     self.user_nick_name = data["user_nick_name"].string
     //print(self.title)
   }
+  
+  func isPicTopic() -> Bool {
+    if self.pic_path != "" {
+      return true
+    } else {
+      return false
+    }
+  }
 }

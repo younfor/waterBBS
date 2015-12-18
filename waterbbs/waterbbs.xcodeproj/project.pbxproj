@@ -39,6 +39,7 @@
 		188CF7B41C1C4B8B006B7537 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 188CF7B31C1C4B8B006B7537 /* UIImage+ImageEffects.m */; };
 		188CF7B61C1C51C8006B7537 /* MainNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188CF7B51C1C51C8006B7537 /* MainNavViewController.swift */; };
 		18A8E94F1C1D8C9F00C7CB92 /* HttpTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A8E94E1C1D8C9F00C7CB92 /* HttpTool.swift */; };
+		18F203FA1C23CB7800E38517 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F203F91C23CB7800E38517 /* GroupViewController.swift */; };
 		FF97EC53CC82B83FB6822394 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B75D546B10532AA7557FC6 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -114,6 +115,7 @@
 		188CF7B31C1C4B8B006B7537 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		188CF7B51C1C51C8006B7537 /* MainNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavViewController.swift; sourceTree = "<group>"; };
 		18A8E94E1C1D8C9F00C7CB92 /* HttpTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpTool.swift; sourceTree = "<group>"; };
+		18F203F91C23CB7800E38517 /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		1A6488AE28C1ECD7F4FE5804 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		34B75D546B10532AA7557FC6 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80F3FB5D1C9BBFBAA5608887 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 		188CF77D1C1C3240006B7537 /* group */ = {
 			isa = PBXGroup;
 			children = (
+				18F203F81C23CB5C00E38517 /* controller */,
 			);
 			name = group;
 			sourceTree = "<group>";
@@ -373,6 +376,14 @@
 				18A8E94E1C1D8C9F00C7CB92 /* HttpTool.swift */,
 			);
 			name = httptool;
+			sourceTree = "<group>";
+		};
+		18F203F81C23CB5C00E38517 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				18F203F91C23CB7800E38517 /* GroupViewController.swift */,
+			);
+			name = controller;
 			sourceTree = "<group>";
 		};
 		2D7F46ADA66F85A9C5E6B208 /* Pods */ = {
@@ -592,6 +603,7 @@
 				18426F9E1C22D61B002C096E /* Topic.swift in Sources */,
 				1801D3941C1E99FA00CCD31E /* ForumChild.swift in Sources */,
 				188CF7941C1C3F4C006B7537 /* NSData+SDDataCache.m in Sources */,
+				18F203FA1C23CB7800E38517 /* GroupViewController.swift in Sources */,
 				188CF7961C1C3F4C006B7537 /* TAAnimatedDotView.m in Sources */,
 				188CF74D1C1C3122006B7537 /* AppDelegate.swift in Sources */,
 				18A8E94F1C1D8C9F00C7CB92 /* HttpTool.swift in Sources */,

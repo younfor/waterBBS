@@ -32,8 +32,6 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
         //创建leftBarButtonItem以及添加手势识别
         let leftButton = UIBarButtonItem(image: UIImage(named: "menu"), style: .Plain, target: self.revealViewController(), action: "revealToggle:")
         leftButton.tintColor = UIColor.whiteColor()
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         self.navigationItem.setLeftBarButtonItem(leftButton, animated: false)
         //tableview
         self.tableView.registerNib(UINib.init(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: self.cell)
@@ -42,17 +40,29 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
     }
     func loadTopics() {
       print("加载首页数据")
+      // 网络操作
       HttpTool.getHttpTool().topicList("61", page: 1, onSuccess: { (datas) -> Void in
-          self.topics.appendContentsOf(datas)
-          self.tableView.reloadData()
+        // 最新主题
+        self.topics.appendContentsOf(datas)
+        self.tableView.reloadData()
+        var pics = Array<String>()
+        var titles = Array<String>()
+        // 最新图片
+        for topic:Topic in datas {
+          if topic.isPicTopic() {
+            pics.append(topic.pic_path!)
+            titles.append(topic.title)
+          }
+        }
+        self.topPicturesView.titlesGroup = titles
+        self.topPicturesView.imageURLStringsGroup = pics
         }) { (error) -> Void in
           print(error)
       }
     }
     func initTopPicturesView() {
         // 初始化轮播图片
-        self.topPicturesView = SDCycleScrollView(frame: CGRectMake(0, 0, self.tableView.frame.width, 154), imagesGroup: [UIImage.init(named: "TopImage1")!,UIImage.init(named: "TopImage2")!,UIImage.init(named: "TopImage3")!,UIImage.init(named: "TopImage4")!,UIImage.init(named: "TopImage5")!])
-        self.topPicturesView.titlesGroup = ["你好吗","哈哈","测试啦","傻","去哪了"]
+        self.topPicturesView = SDCycleScrollView(frame: CGRectMake(0, 0, self.tableView.frame.width, 154), imagesGroup: nil)
         self.topPicturesView.titleLabelBackgroundColor = UIColor.clearColor()
         self.topPicturesView.delegate = self
         self.topPicturesView.titleLabelAlpha = 1

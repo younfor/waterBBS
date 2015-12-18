@@ -94,7 +94,7 @@
         <!--社区-->
         <scene sceneID="1eT-Ts-fRC">
             <objects>
-                <tableViewController id="HRl-5z-n7h" userLabel="社区" sceneMemberID="viewController">
+                <tableViewController id="HRl-5z-n7h" userLabel="社区" customClass="GroupViewController" customModule="waterbbs" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="tWG-fu-cnI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -152,18 +152,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Mrh-nb-prd">
-                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mrh-nb-prd" id="CAt-cb-w1u">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <animations/>
-                                </tableViewCellContentView>
-                                <animations/>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="xEe-Ul-wQ2" id="96x-dy-WKZ"/>
                             <outlet property="delegate" destination="xEe-Ul-wQ2" id="VgV-MH-N2g"/>
@@ -225,7 +213,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Mx-L3-jwV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="890" y="885"/>
+            <point key="canvasLocation" x="541" y="885"/>
         </scene>
         <!--发现-->
         <scene sceneID="Jlw-Hn-h52">
@@ -299,25 +287,85 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xoQ-x0-N42">
                                 <rect key="frame" x="74" y="20" width="64" height="64"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.17999999999999999" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="UUH-hX-nhk"/>
                                     <constraint firstAttribute="width" constant="64" id="yY1-n7-FPY"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Oi-Qd-Hks">
+                                <rect key="frame" x="76" y="530" width="60" height="30"/>
+                                <animations/>
+                                <state key="normal" title="关于软件">
+                                    <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <segue destination="vVv-hI-TQt" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="pcG-dd-MmD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1kG-xK-hcs">
+                                <rect key="frame" x="76" y="492" width="60" height="30"/>
+                                <animations/>
+                                <state key="normal" title="登陆账号">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="a7s-6Q-vvd">
+                                <rect key="frame" x="-2" y="153" width="215" height="336"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="215" id="lLi-8B-m8T"/>
+                                </constraints>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="QeS-p7-hWF">
+                                        <rect key="frame" x="0.0" y="28" width="215" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QeS-p7-hWF" id="TWq-mg-2Eg">
+                                            <rect key="frame" x="0.0" y="0.0" width="215" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lwf-un-XRK">
+                                <rect key="frame" x="78" y="126" width="56" height="29"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="收藏版块">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="3Oi-Qd-Hks" firstAttribute="centerX" secondItem="1kG-xK-hcs" secondAttribute="centerX" id="3l0-MG-JNW"/>
+                            <constraint firstItem="3Oi-Qd-Hks" firstAttribute="top" secondItem="ogz-WY-GrL" secondAttribute="bottom" constant="-38" id="6xZ-R8-8Oi"/>
+                            <constraint firstItem="a7s-6Q-vvd" firstAttribute="top" secondItem="lwf-un-XRK" secondAttribute="bottom" constant="-2" id="92q-7s-SX1"/>
                             <constraint firstItem="ogz-WY-GrL" firstAttribute="leading" secondItem="o6v-mF-GhY" secondAttribute="leadingMargin" constant="-20" id="Cct-3z-xwv"/>
                             <constraint firstItem="ogz-WY-GrL" firstAttribute="leading" secondItem="gF1-SQ-TFN" secondAttribute="trailing" constant="-184" id="FUb-oW-a3I"/>
+                            <constraint firstItem="lwf-un-XRK" firstAttribute="top" secondItem="gF1-SQ-TFN" secondAttribute="bottom" constant="3.5" id="P3T-Pa-cVT"/>
+                            <constraint firstItem="1kG-xK-hcs" firstAttribute="top" secondItem="a7s-6Q-vvd" secondAttribute="bottom" constant="3" id="RGP-Sv-5lQ"/>
+                            <constraint firstItem="3Oi-Qd-Hks" firstAttribute="top" secondItem="1kG-xK-hcs" secondAttribute="bottom" constant="8" id="XZY-Xv-eoJ"/>
+                            <constraint firstItem="a7s-6Q-vvd" firstAttribute="centerX" secondItem="xoQ-x0-N42" secondAttribute="centerX" id="Xhn-ym-z8e"/>
                             <constraint firstItem="Ytj-ub-B2l" firstAttribute="top" secondItem="ogz-WY-GrL" secondAttribute="bottom" id="YLJ-QW-avx"/>
+                            <constraint firstItem="lwf-un-XRK" firstAttribute="centerX" secondItem="xoQ-x0-N42" secondAttribute="centerX" id="cfS-XF-SEb"/>
+                            <constraint firstItem="1kG-xK-hcs" firstAttribute="centerX" secondItem="a7s-6Q-vvd" secondAttribute="centerX" id="ciB-9e-crW"/>
+                            <constraint firstItem="a7s-6Q-vvd" firstAttribute="leading" secondItem="o6v-mF-GhY" secondAttribute="leadingMargin" constant="-20" id="hZn-KE-MfV"/>
                             <constraint firstItem="ogz-WY-GrL" firstAttribute="leading" secondItem="xoQ-x0-N42" secondAttribute="trailing" constant="-142" id="jnA-i9-G5C"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ogz-WY-GrL" secondAttribute="trailing" constant="-20" id="muk-iI-X8L"/>
                             <constraint firstItem="ogz-WY-GrL" firstAttribute="top" secondItem="xoQ-x0-N42" secondAttribute="bottom" constant="-104" id="pt4-3o-i8P"/>
                             <constraint firstItem="gF1-SQ-TFN" firstAttribute="top" secondItem="xoQ-x0-N42" secondAttribute="bottom" constant="18" id="u3o-wW-A5Q"/>
                             <constraint firstItem="ogz-WY-GrL" firstAttribute="top" secondItem="o6v-mF-GhY" secondAttribute="topMargin" constant="-20" id="w2m-Nd-1Yn"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="hZn-KE-MfV"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -327,7 +375,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7eQ-YB-4YP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-922" y="443"/>
+            <point key="canvasLocation" x="-368" y="-1258"/>
         </scene>
     </scenes>
     <resources>
@@ -340,4 +388,7 @@
         <image name="icon_invitation_selected" width="23" height="23"/>
         <image name="sidebg" width="580" height="1030"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="pcG-dd-MmD"/>
+    </inferredMetricsTieBreakers>
 </document>

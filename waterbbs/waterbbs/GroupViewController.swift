@@ -1,19 +1,19 @@
 //
-//  TabBarViewController.swift
+//  GroupViewController.swift
 //  waterbbs
 //
-//  Created by y on 15/12/14.
+//  Created by y on 15/12/18.
 //  Copyright © 2015年 younfor. All rights reserved.
 //
 
 import UIKit
 
-class TabBarViewController: UITabBarController {
+class GroupViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-      self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-      self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+      //self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+      //self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
     }
 
     override func didReceiveMemoryWarning() {
