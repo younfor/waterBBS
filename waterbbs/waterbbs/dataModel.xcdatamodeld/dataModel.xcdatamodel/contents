@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15C50" minimumToolsVersion="Xcode 7.0">
+    <entity name="Group" representedClassName=".Group" syncable="YES">
+        <attribute name="board_father_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="board_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="board_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="is_collected" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="td_posts_num" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Group" positionX="-63" positionY="-18" width="128" height="120"/>
+    </elements>
+</model>

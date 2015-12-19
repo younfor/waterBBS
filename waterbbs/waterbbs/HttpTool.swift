@@ -97,9 +97,7 @@ class HttpTool: NSObject {
         //}
       //self.topicPiclist()
       //self.topicList(self.myboardId, page: 1)
-      self.forumList({ (forum) -> Void in
-        print(forum)
-        }, onFail: nil)
+
     }
     // 获取好友
     func atuserlist(onSuccess:(() -> Void)?=nil, onFail:((String) -> Void)?=nil) {

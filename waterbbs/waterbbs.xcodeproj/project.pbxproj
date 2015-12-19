@@ -40,6 +40,11 @@
 		188CF7B61C1C51C8006B7537 /* MainNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188CF7B51C1C51C8006B7537 /* MainNavViewController.swift */; };
 		18A8E94F1C1D8C9F00C7CB92 /* HttpTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A8E94E1C1D8C9F00C7CB92 /* HttpTool.swift */; };
 		18D171661C244040006404CB /* GroupNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D171651C244040006404CB /* GroupNavViewController.swift */; };
+		18D7367F1C258FB000DBF18E /* Group+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D7367D1C258FB000DBF18E /* Group+CoreDataProperties.swift */; };
+		18D736801C258FB000DBF18E /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D7367E1C258FB000DBF18E /* Group.swift */; };
+		18D736821C25908000DBF18E /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D736811C25908000DBF18E /* DBManager.swift */; };
+		18D736841C25985000DBF18E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D736831C25985000DBF18E /* CoreData.framework */; };
+		18E785131C24FDCF00413A70 /* dataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18E785111C24FDCF00413A70 /* dataModel.xcdatamodeld */; };
 		18F203FA1C23CB7800E38517 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F203F91C23CB7800E38517 /* GroupViewController.swift */; };
 		FF97EC53CC82B83FB6822394 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B75D546B10532AA7557FC6 /* Pods.framework */; };
 /* End PBXBuildFile section */
@@ -117,6 +122,11 @@
 		188CF7B51C1C51C8006B7537 /* MainNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavViewController.swift; sourceTree = "<group>"; };
 		18A8E94E1C1D8C9F00C7CB92 /* HttpTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpTool.swift; sourceTree = "<group>"; };
 		18D171651C244040006404CB /* GroupNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupNavViewController.swift; sourceTree = "<group>"; };
+		18D7367D1C258FB000DBF18E /* Group+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Group+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		18D7367E1C258FB000DBF18E /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		18D736811C25908000DBF18E /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		18D736831C25985000DBF18E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		18E785121C24FDCF00413A70 /* dataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = dataModel.xcdatamodel; sourceTree = "<group>"; };
 		18F203F91C23CB7800E38517 /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		1A6488AE28C1ECD7F4FE5804 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		34B75D546B10532AA7557FC6 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18D736841C25985000DBF18E /* CoreData.framework in Frameworks */,
 				FF97EC53CC82B83FB6822394 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,6 +214,7 @@
 		188CF74B1C1C3122006B7537 /* waterbbs */ = {
 			isa = PBXGroup;
 			children = (
+				18E785101C24FD6000413A70 /* coredata */,
 				18A8E94D1C1D8C7600C7CB92 /* httptool */,
 				188CF7811C1C3F03006B7537 /* framework */,
 				188CF7801C1C3268006B7537 /* aboutme */,
@@ -380,6 +392,17 @@
 			name = httptool;
 			sourceTree = "<group>";
 		};
+		18E785101C24FD6000413A70 /* coredata */ = {
+			isa = PBXGroup;
+			children = (
+				18D7367D1C258FB000DBF18E /* Group+CoreDataProperties.swift */,
+				18D7367E1C258FB000DBF18E /* Group.swift */,
+				18E785111C24FDCF00413A70 /* dataModel.xcdatamodeld */,
+				18D736811C25908000DBF18E /* DBManager.swift */,
+			);
+			name = coredata;
+			sourceTree = "<group>";
+		};
 		18F203F81C23CB5C00E38517 /* controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -401,6 +424,7 @@
 		A460E8C6483E9F2E181B0C6C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18D736831C25985000DBF18E /* CoreData.framework */,
 				34B75D546B10532AA7557FC6 /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -595,9 +619,11 @@
 				18D171661C244040006404CB /* GroupNavViewController.swift in Sources */,
 				188CF7A61C1C4122006B7537 /* GradientView.m in Sources */,
 				188CF7971C1C3F4C006B7537 /* TADotView.m in Sources */,
+				18D7367F1C258FB000DBF18E /* Group+CoreDataProperties.swift in Sources */,
 				188CF7B61C1C51C8006B7537 /* MainNavViewController.swift in Sources */,
 				188CF7B11C1C4A9D006B7537 /* UINavigationBar+Awesome.m in Sources */,
 				188CF7AE1C1C4A81006B7537 /* ParallaxHeaderView.m in Sources */,
+				18D736821C25908000DBF18E /* DBManager.swift in Sources */,
 				1801D38D1C1E8E3600CCD31E /* TabBarViewController.swift in Sources */,
 				1816FE891C22E91B0010B2A4 /* MainTableViewCell.swift in Sources */,
 				188CF79B1C1C3F4C006B7537 /* UIView+SDExtension.m in Sources */,
@@ -611,9 +637,11 @@
 				188CF7961C1C3F4C006B7537 /* TAAnimatedDotView.m in Sources */,
 				188CF74D1C1C3122006B7537 /* AppDelegate.swift in Sources */,
 				18A8E94F1C1D8C9F00C7CB92 /* HttpTool.swift in Sources */,
+				18E785131C24FDCF00413A70 /* dataModel.xcdatamodeld in Sources */,
 				188CF7991C1C3F4C006B7537 /* SDCollectionViewCell.m in Sources */,
 				1801D38B1C1E8DD700CCD31E /* SideMenuViewController.swift in Sources */,
 				188CF7A31C1C4104006B7537 /* SWRevealViewController.m in Sources */,
+				18D736801C258FB000DBF18E /* Group.swift in Sources */,
 				1801D3901C1E96FD00CCD31E /* User.swift in Sources */,
 				1801D3921C1E992900CCD31E /* Forum.swift in Sources */,
 			);
@@ -865,6 +893,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		18E785111C24FDCF00413A70 /* dataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				18E785121C24FDCF00413A70 /* dataModel.xcdatamodel */,
+			);
+			currentVersion = 18E785121C24FDCF00413A70 /* dataModel.xcdatamodel */;
+			path = dataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 188CF7411C1C3122006B7537 /* Project object */;
 }

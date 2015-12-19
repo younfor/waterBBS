@@ -20,11 +20,18 @@ class GroupViewController: UITableViewController {
     self.navigationController?.navigationBar.shadowImage = UIImage()
     // 设置白色标题
     self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+    // 首先读取数据库
+    let groups = DBManager.DBGroupList()
+    print(groups?.count)
+    self.forums = Forum.DBForumList(groups!)
+    self.tableView.reloadData()
     // 加载网络数据
     HttpTool.getHttpTool().forumList({ (data) -> Void in
-      self.forums.appendContentsOf(data)
+      self.forums = data
       self.tableView.reloadData()
-      }) { (error) -> Void in
+      // 更新数据库
+      DBManager.DBAddGroupList(data)
+            }) { (error) -> Void in
         print(error)
     }
     self.tableView.setEditing(false, animated: true);
@@ -32,26 +39,33 @@ class GroupViewController: UITableViewController {
   //设置导航右边管理按钮
   func setRightDeleteButtonItem(){
     
-    let barButtonItem = UIBarButtonItem(title:"编辑", style: .Done, target: self, action: "RightButtonItemAction")
+    let barButtonItem = UIBarButtonItem(title:"收藏", style: .Done, target: self, action: "showCollection")
     barButtonItem.tintColor = UIColor.whiteColor()
     self.navigationItem.rightBarButtonItem = barButtonItem
   }
-  // tableview
-  override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    return true
+  
+  func showCollection() {
+    print("开启编辑")
   }
   
-  override func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String? {
-    
-    return "收藏"
-  }
+  // tableview
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return self.forums[section].board_list!.count
   }
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    print("选中")
+    let cell = tableView.cellForRowAtIndexPath(indexPath)
+    let child = self.forums[indexPath.section].board_list![indexPath.row]
+    if cell?.accessoryType == UITableViewCellAccessoryType.Checkmark {
+      cell?.accessoryType = UITableViewCellAccessoryType.None
+      child.isCollected = NSNumber.init(bool: false)
+    } else {
+      cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
+      child.isCollected = NSNumber.init(bool: true)
+    }
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    
   }
   
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -62,7 +76,6 @@ class GroupViewController: UITableViewController {
     let label = UILabel()
     label.textAlignment = NSTextAlignment.Center
     label.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.3)
-    
     label.text = self.forums[section].board_category_name
     return label
   }
@@ -76,6 +89,11 @@ class GroupViewController: UITableViewController {
       cell!.detailTextLabel?.text = "\(child.td_posts_num)°"
     } else {
       cell!.detailTextLabel?.text = ""
+    }
+    if child.isCollected?.boolValue == false {
+      cell?.accessoryType = UITableViewCellAccessoryType.None
+    } else {
+      cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
     }
     return cell!
   }

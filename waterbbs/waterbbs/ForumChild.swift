@@ -21,6 +21,10 @@ class ForumChild: NSObject {
     var posts_total_num:Int!
     var td_posts_num:String!
     var topic_total_num:Int!
+   var isCollected:NSNumber?
+  override init() {
+    super.init()
+  }
   init(data:JSON) {
     self.board_child = data["board_child"].string
     self.board_content = data["board_content"].string
@@ -28,5 +32,6 @@ class ForumChild: NSObject {
     self.board_img = data["board_img"].string
     self.board_name = data["board_name"].string
     self.td_posts_num = String(data["td_posts_num"])
+    self.isCollected = NSNumber.init(bool: false)
   }
 }
