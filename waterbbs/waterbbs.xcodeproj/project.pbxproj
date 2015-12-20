@@ -392,11 +392,19 @@
 			name = httptool;
 			sourceTree = "<group>";
 		};
-		18E785101C24FD6000413A70 /* coredata */ = {
+		18D736851C25B99400DBF18E /* group */ = {
 			isa = PBXGroup;
 			children = (
 				18D7367D1C258FB000DBF18E /* Group+CoreDataProperties.swift */,
 				18D7367E1C258FB000DBF18E /* Group.swift */,
+			);
+			name = group;
+			sourceTree = "<group>";
+		};
+		18E785101C24FD6000413A70 /* coredata */ = {
+			isa = PBXGroup;
+			children = (
+				18D736851C25B99400DBF18E /* group */,
 				18E785111C24FDCF00413A70 /* dataModel.xcdatamodeld */,
 				18D736811C25908000DBF18E /* DBManager.swift */,
 			);

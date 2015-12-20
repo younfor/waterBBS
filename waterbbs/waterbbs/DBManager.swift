@@ -37,6 +37,16 @@ class DBManager: NSObject {
     
   }
   // 查询
+  class func DBGroupListWithCollected() -> [Group] {
+    let groups = DBGroupList()
+    var selects = Array<Group>()
+    for group in groups! {
+      if group.is_collected?.boolValue == true {
+        selects.append(group)
+      }
+    }
+    return selects
+  }
   class func DBGroupList() -> [Group]? {
     let req = NSFetchRequest(entityName: "Group")
     do {

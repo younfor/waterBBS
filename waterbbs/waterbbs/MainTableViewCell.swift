@@ -32,11 +32,15 @@ class MainTableViewCell: UITableViewCell {
     self.count.text = "\(topic.user_nick_name)  人气 \(topic.hits)°"
     // 删除前缀
     let range = topic.title.rangeOfString("]")
-    self.topicname.text = topic.title.substringFromIndex((range?.startIndex.advancedBy(1))!)
+    if range != nil {
+      self.topicname.text = topic.title.substringFromIndex((range?.startIndex.advancedBy(1))!)
+    } else {
+      self.topicname.text = topic.title
+    }
     self.topicDescripe.text = topic.subject
     let url = topic.pic_path
     if url != "" {
-      self.pic.sd_setImageWithURL(NSURL.init(string:url!))
+      self.pic.sd_setImageWithURL(NSURL.init(string:url!), placeholderImage: UIImage.init(named: "TopImage3"))
       picWidth.constant = 64
     } else {
       picWidth.constant = 0

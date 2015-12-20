@@ -10,18 +10,18 @@ import UIKit
 import SwiftyJSON
 
 class ForumChild: NSObject {
-    var board_child:String! //是否有子板块
-    var board_content:String! //是否为空板块
-    var board_id:String! //fid
-    var board_img:String!
-    var board_name:String! //板块名称
-    var _description:String!
-    var forumRedirect:String?
-    var last_posts_date:String?
-    var posts_total_num:Int!
-    var td_posts_num:String!
-    var topic_total_num:Int!
-   var isCollected:NSNumber?
+  var board_child:String! //是否有子板块
+  var board_content:String! //是否为空板块
+  var board_id:String! //fid
+  var board_img:String!
+  var board_name:String! //板块名称
+  var _description:String!
+  var forumRedirect:String?
+  var last_posts_date:String?
+  var posts_total_num:Int!
+  var td_posts_num:String!
+  var topic_total_num:Int!
+  var isCollected:NSNumber?
   override init() {
     super.init()
   }
@@ -32,6 +32,5 @@ class ForumChild: NSObject {
     self.board_img = data["board_img"].string
     self.board_name = data["board_name"].string
     self.td_posts_num = String(data["td_posts_num"])
-    self.isCollected = NSNumber.init(bool: false)
   }
 }
