@@ -20,6 +20,9 @@ class Topic: NSObject {
   var last_reply_date:String!
   var pic_path:String?
   var user_nick_name:String!
+  override init() {
+    super.init()
+  }
   init(data:JSON) {
     self.topic_id = data["topic_id"].string
     self.title = data["title"].string

@@ -11,13 +11,15 @@ import UIKit
 class MainViewController: UITableViewController,SDCycleScrollViewDelegate, ParallaxHeaderViewDelegate,UIGestureRecognizerDelegate {
   
   @IBOutlet weak var titleTop: UILabel!
+  // 当前页数
+  var curPage = 1
   // 触摸
   var lastTouchY:CGFloat = 0
   // 轮播图片
   var topPicturesView :SDCycleScrollView!
   // tableview
   lazy var topics = Array<Topic>()
-  static var forumID = "61"
+  static var forumID = ""
   let cell = "mainCell"
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -37,7 +39,7 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
     // tableview
     self.tableView.registerNib(UINib.init(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: self.cell)
     self.tableView.rowHeight = 80
-    self.loadTopics(false)
+    self.loadTopics(true)
     // 收到通知
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "mainReload:", name: "mainReload", object: nil)
   }
@@ -46,23 +48,41 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
     print("准备展示\(MainViewController.forumID)")
     self.loadTopics(true)
   }
+  // 上拉加载更多
+  func loadMore() {
+    self.curPage++
+    self.loadTopics(false)
+  }
   func loadTopics(clear:Bool) {
-    print("加载首页数据")
+    print("加载首页数据库数据")
+    if self.curPage == 1 {
+      if let titles = DBManager.DBTitleList() {
+        self.topics = titles
+      } else {
+        print("数据库没有首页信息")
+      }
+    }
     // 网络操作
-    HttpTool.getHttpTool().topicList(MainViewController.forumID, page: 1, onSuccess: { (datas) -> Void in
+    HttpTool.getHttpTool().topicList(MainViewController.forumID, page: self.curPage, onSuccess: { (datas) -> Void in
       // 最新主题
       if clear {
         self.topics.removeAll()
       }
       self.topics.appendContentsOf(datas)
+      print("缓存数据库")
+      DBManager.DBAddTitleList(datas)
       self.tableView.reloadData()
       var pics = Array<String>()
       var titles = Array<String>()
-      // 最新图片
+      // 最新图片-最大6张
+      var i = 0
       for topic:Topic in datas {
         if topic.isPicTopic() {
           pics.append(topic.pic_path!)
           titles.append(topic.title)
+        }
+        if i++ > 6 {
+          break
         }
       }
       if titles.count == 0 {

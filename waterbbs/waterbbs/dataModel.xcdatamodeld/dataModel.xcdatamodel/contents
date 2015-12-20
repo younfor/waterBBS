@@ -7,7 +7,20 @@
         <attribute name="is_collected" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="td_posts_num" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Title" representedClassName=".Title" syncable="YES">
+        <attribute name="hits" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageList" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="last_reply_date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pic_path" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="replies" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="subject" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="topic_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user_nick_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userAvatar" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Group" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Title" positionX="-54" positionY="81" width="128" height="195"/>
     </elements>
 </model>

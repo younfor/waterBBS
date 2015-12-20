@@ -36,12 +36,28 @@ class HttpTool: NSObject {
     self.httpPost(self.baseUrl + self.topicUrl, params: ["page":page,"boardId":boardId,"pageSize":self.pageSize], withLogin: true, onSuccess: { (data) -> () in
       var topics:Array = Array<Topic>()
       for topicdata in data["list"] {
-        topics.append(Topic.init(data: topicdata.1))
+        let topic = Topic.init(data: topicdata.1)
+        if boardId == "" && self.isTooLate(topic.last_reply_date) {
+          continue
+        } else {
+          topics.append(Topic.init(data: topicdata.1))
+        }
       }
       onSuccess?(topics)
       }) { (error) -> () in
         onFail?("请求失败:" + error)
     }
+  }
+  // 判断时间是否太晚
+  func isTooLate(date:String) -> Bool{
+    let dateString = date as NSString
+    let num = dateString.doubleValue/1000
+    let date = NSDate.init(timeIntervalSince1970: num)
+    let text = date.prettyDateWithReference(NSDate.init(timeIntervalSinceNow: 0))
+    if text.containsString("年") || text.containsString("月") || text.containsString("周") {
+      return true
+    }
+    return false
   }
     // 获取板块列表-(登陆/不登陆)
   func forumList(onSuccess:((forums:Array<Forum>) -> Void)?=nil, onFail:((String) -> Void)?=nil) {

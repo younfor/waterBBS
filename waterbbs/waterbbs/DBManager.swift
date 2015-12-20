@@ -12,7 +12,7 @@ import CoreData
 class DBManager: NSObject {
   
   static var context:NSManagedObjectContext?
-
+  
   class func DBContext() -> NSManagedObjectContext {
     if self.context != nil {
       return self.context!
@@ -29,13 +29,74 @@ class DBManager: NSObject {
       print("数据实例存储错误")
     }
     self.context?.persistentStoreCoordinator = store
-
+    
     return self.context!
   }
-  //----------------- 社区 ------------
-  class func test() {
+  //----------------- 主页 ------------
+  // 查询
+  class func DBTitleList() -> [Topic]? {
+    let req = NSFetchRequest(entityName: "Title")
+    do {
+      let datas = try DBContext().executeFetchRequest(req)
+      var topics = Array<Topic>()
+      for title in (datas as? [Title])! {
+        let topic = Topic()
+        topic.hits = title.hits
+        topic.imageList = title.imageList
+        topic.last_reply_date = title.last_reply_date
+        topic.pic_path = title.pic_path
+        topic.replies = title.replies
+        topic.subject = title.subject
+        topic.title = title.title
+        topic.topic_id = title.topic_id
+        topic.user_nick_name = title.user_nick_name
+        topic.userAvatar = title.userAvatar
+        topics.append(topic)
+      }
+      return topics
+    } catch _ {
+      print("数据库请求失败:主页")
+    }
+    return nil
+  }
+  // 写入
+  class func DBAddTitleList(datas:[Topic]) {
+    // 清空
+    let req = NSFetchRequest(entityName: "Title")
+    do {
+      let results = try DBContext().executeFetchRequest(req)
+      print("清空\(results.count)条数据")
+      for r in results {
+        DBContext().deleteObject(r as! NSManagedObject)
+      }
+      try DBContext().save()
+    } catch _ {
+      print("写入失败")
+    }
+    // 更新数据库
+    do {
+      for title in datas {
+        
+        let topic = NSEntityDescription.insertNewObjectForEntityForName("Title", inManagedObjectContext: DBContext()) as? Title
+        topic?.hits = title.hits
+        topic?.imageList = title.imageList
+        topic?.last_reply_date = title.last_reply_date
+        topic?.pic_path = title.pic_path
+        topic?.replies = title.replies
+        topic?.subject = title.subject
+        topic?.title = title.title
+        topic?.topic_id = title.topic_id
+        topic?.user_nick_name = title.user_nick_name
+        topic?.userAvatar = title.userAvatar
+        
+      }
+      try DBContext().save()
+    } catch _ {
+      print("写入失败")
+    }
     
   }
+  //----------------- 社区 ------------
   // 查询
   class func DBGroupListWithCollected() -> [Group] {
     let groups = DBGroupList()
