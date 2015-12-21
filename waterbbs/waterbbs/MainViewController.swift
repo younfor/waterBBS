@@ -31,6 +31,8 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
     self.navigationController?.navigationBar.shadowImage = UIImage()
     // 设置白色标题
     self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+    let BackBarButtonItem = UIBarButtonItem(title:"返回", style: .Plain, target: nil, action: nil)
+    self.navigationItem.backBarButtonItem = BackBarButtonItem
     //self.titleTop.alpha = 0
     //创建leftBarButtonItem以及添加手势识别
     let leftButton = UIBarButtonItem(image: UIImage(named: "menu"), style: .Plain, target: self.revealViewController(), action: "revealToggle:")
@@ -158,6 +160,15 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
     let cell:MainTableViewCell = tableView.dequeueReusableCellWithIdentifier(self.cell) as! MainTableViewCell
     cell.setData(self.topics[indexPath.row])
     return cell
+  }
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    let topic = self.topics[indexPath.row]
+    let vc = self.storyboard?.instantiateViewControllerWithIdentifier("detailVC") as! DetailViewController
+    vc.topicId = topic.topic_id
+    if topic.sourceWebUrl != nil {
+      print(topic.sourceWebUrl)
+    }
+    self.navigationController?.pushViewController(vc, animated: true)
   }
   
   

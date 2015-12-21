@@ -57,19 +57,19 @@
   }
   // lower than one week
   else if (days < 7) {
-    return [NSString stringWithFormat:@"%d 天%@ %@", days, days == 1 ? @"" : @"s", suffix];
+    return [NSString stringWithFormat:@"%d 天%@ %@", days, days == 1 ? @"" : @"前", suffix];
   }
   // lager than one week but lower than a month
   else if (weeks < 4) {
-    return [NSString stringWithFormat:@"%d 周%@ %@", weeks, weeks == 1 ? @"" : @"s", suffix];
+    return [NSString stringWithFormat:@"%d 周%@ %@", weeks, weeks == 1 ? @"" : @"前", suffix];
   }
   // lager than a month and lower than a year
   else if (months < 12) {
-    return [NSString stringWithFormat:@"%d 月%@ %@", months, months == 1 ? @"" : @"s", suffix];
+    return [NSString stringWithFormat:@"%d 月%@ %@", months, months == 1 ? @"" : @"前", suffix];
   }
   // lager than a year
   else {
-    return [NSString stringWithFormat:@"%d 年%@ %@", years, years == 1 ? @"" : @"s", suffix];
+    return [NSString stringWithFormat:@"%d 年%@ %@", years, years == 1 ? @"" : @"前", suffix];
   }
   
   return self.description;

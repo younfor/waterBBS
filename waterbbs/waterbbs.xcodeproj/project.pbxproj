@@ -18,6 +18,12 @@
 		18426F9E1C22D61B002C096E /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18426F9D1C22D61B002C096E /* Topic.swift */; };
 		185C9B9E1C26D3050034E607 /* Title+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185C9B9C1C26D3050034E607 /* Title+CoreDataProperties.swift */; };
 		185C9B9F1C26D3050034E607 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185C9B9D1C26D3050034E607 /* Title.swift */; };
+		186802BB1C27D1F50072F4D8 /* TopicDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186802BA1C27D1F50072F4D8 /* TopicDetail.swift */; };
+		186802BD1C27D3910072F4D8 /* Reply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186802BC1C27D3910072F4D8 /* Reply.swift */; };
+		186802BF1C27D78E0072F4D8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186802BE1C27D78E0072F4D8 /* DetailViewController.swift */; };
+		186802C11C27E3A50072F4D8 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186802C01C27E3A50072F4D8 /* Constant.swift */; };
+		186802C31C27F2200072F4D8 /* DetailHeadeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186802C21C27F2200072F4D8 /* DetailHeadeView.xib */; };
+		186802C51C27F3340072F4D8 /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186802C41C27F3340072F4D8 /* DetailHeaderView.swift */; };
 		188CF74D1C1C3122006B7537 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188CF74C1C1C3122006B7537 /* AppDelegate.swift */; };
 		188CF7521C1C3122006B7537 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188CF7501C1C3122006B7537 /* Main.storyboard */; };
 		188CF7541C1C3122006B7537 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 188CF7531C1C3122006B7537 /* Assets.xcassets */; };
@@ -81,6 +87,12 @@
 		18426F9D1C22D61B002C096E /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		185C9B9C1C26D3050034E607 /* Title+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Title+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		185C9B9D1C26D3050034E607 /* Title.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
+		186802BA1C27D1F50072F4D8 /* TopicDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicDetail.swift; sourceTree = "<group>"; };
+		186802BC1C27D3910072F4D8 /* Reply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reply.swift; sourceTree = "<group>"; };
+		186802BE1C27D78E0072F4D8 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		186802C01C27E3A50072F4D8 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		186802C21C27F2200072F4D8 /* DetailHeadeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailHeadeView.xib; sourceTree = "<group>"; };
+		186802C41C27F3340072F4D8 /* DetailHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
 		188CF7491C1C3122006B7537 /* waterbbs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = waterbbs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		188CF74C1C1C3122006B7537 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		188CF7511C1C3122006B7537 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -180,6 +192,8 @@
 				1801D3911C1E992900CCD31E /* Forum.swift */,
 				1801D3931C1E99FA00CCD31E /* ForumChild.swift */,
 				18426F9D1C22D61B002C096E /* Topic.swift */,
+				186802BA1C27D1F50072F4D8 /* TopicDetail.swift */,
+				186802BC1C27D3910072F4D8 /* Reply.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -189,6 +203,8 @@
 			children = (
 				1816FE881C22E91B0010B2A4 /* MainTableViewCell.swift */,
 				1816FE8A1C22E94E0010B2A4 /* MainTableViewCell.xib */,
+				186802C21C27F2200072F4D8 /* DetailHeadeView.xib */,
+				186802C41C27F3340072F4D8 /* DetailHeaderView.swift */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -372,6 +388,7 @@
 			children = (
 				188CF7A81C1C41D3006B7537 /* MainViewController.swift */,
 				188CF7B51C1C51C8006B7537 /* MainNavViewController.swift */,
+				186802BE1C27D78E0072F4D8 /* DetailViewController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -421,6 +438,7 @@
 				18D736851C25B99400DBF18E /* group */,
 				18E785111C24FDCF00413A70 /* dataModel.xcdatamodeld */,
 				18D736811C25908000DBF18E /* DBManager.swift */,
+				186802C01C27E3A50072F4D8 /* Constant.swift */,
 			);
 			name = coredata;
 			sourceTree = "<group>";
@@ -562,6 +580,7 @@
 				188CF7541C1C3122006B7537 /* Assets.xcassets in Resources */,
 				1816FE8B1C22E94E0010B2A4 /* MainTableViewCell.xib in Resources */,
 				188CF7521C1C3122006B7537 /* Main.storyboard in Resources */,
+				186802C31C27F2200072F4D8 /* DetailHeadeView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -643,6 +662,7 @@
 				188CF7971C1C3F4C006B7537 /* TADotView.m in Sources */,
 				185C9B9E1C26D3050034E607 /* Title+CoreDataProperties.swift in Sources */,
 				18D7367F1C258FB000DBF18E /* Group+CoreDataProperties.swift in Sources */,
+				186802BB1C27D1F50072F4D8 /* TopicDetail.swift in Sources */,
 				188CF7B61C1C51C8006B7537 /* MainNavViewController.swift in Sources */,
 				188CF7B11C1C4A9D006B7537 /* UINavigationBar+Awesome.m in Sources */,
 				188CF7AE1C1C4A81006B7537 /* ParallaxHeaderView.m in Sources */,
@@ -651,13 +671,17 @@
 				1816FE891C22E91B0010B2A4 /* MainTableViewCell.swift in Sources */,
 				188CF79B1C1C3F4C006B7537 /* UIView+SDExtension.m in Sources */,
 				188CF7951C1C3F4C006B7537 /* TAAbstractDotView.m in Sources */,
+				186802BF1C27D78E0072F4D8 /* DetailViewController.swift in Sources */,
+				186802BD1C27D3910072F4D8 /* Reply.swift in Sources */,
 				188CF79A1C1C3F4C006B7537 /* SDCycleScrollView.m in Sources */,
 				185C9B9F1C26D3050034E607 /* Title.swift in Sources */,
 				188CF79F1C1C40EA006B7537 /* myUILabel.m in Sources */,
+				186802C51C27F3340072F4D8 /* DetailHeaderView.swift in Sources */,
 				18426F9E1C22D61B002C096E /* Topic.swift in Sources */,
 				1801D3941C1E99FA00CCD31E /* ForumChild.swift in Sources */,
 				188CF7941C1C3F4C006B7537 /* NSData+SDDataCache.m in Sources */,
 				18F203FA1C23CB7800E38517 /* GroupViewController.swift in Sources */,
+				186802C11C27E3A50072F4D8 /* Constant.swift in Sources */,
 				188CF7961C1C3F4C006B7537 /* TAAnimatedDotView.m in Sources */,
 				188CF74D1C1C3122006B7537 /* AppDelegate.swift in Sources */,
 				18A8E94F1C1D8C9F00C7CB92 /* HttpTool.swift in Sources */,

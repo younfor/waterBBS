@@ -20,11 +20,12 @@ class Topic: NSObject {
   var last_reply_date:String!
   var pic_path:String?
   var user_nick_name:String!
+  var sourceWebUrl:String!
   override init() {
     super.init()
   }
   init(data:JSON) {
-    self.topic_id = data["topic_id"].string
+    self.topic_id = String(data["topic_id"])
     self.title = data["title"].string
     self.subject = data["subject"].string
     self.userAvatar = data["userAvatar"].string
@@ -34,6 +35,8 @@ class Topic: NSObject {
     self.last_reply_date = data["last_reply_date"].string
     self.pic_path = data["pic_path"].string
     self.user_nick_name = data["user_nick_name"].string
+    self.sourceWebUrl = data["sourceWebUrl"].string
+    
     //print(self.title)
   }
   
