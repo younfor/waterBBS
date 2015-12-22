@@ -24,7 +24,9 @@ class DetailViewController: UIViewController {
     self.loadData()
     // 头部
     self.header = NSBundle.mainBundle().loadNibNamed("DetailHeadeView", owner: nil, options: nil).first as? DetailHeaderView
+    //self.header?.frame = CGRectMake(0, 0, 300, 200)
     self.tableview.tableHeaderView = self.header
+    //
   }
   
   func loadData() {

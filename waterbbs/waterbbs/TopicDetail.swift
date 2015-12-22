@@ -24,7 +24,7 @@ class TopicDetail: NSObject {
   var userTitle:String?
   var user_nick_name:String?
   // content
-  var infor:String?
+  var infors:[String:String]?
   var type:String?
   init(data:JSON) {
     self.page = data["page"].string
@@ -39,6 +39,11 @@ class TopicDetail: NSObject {
     self.icon = data["topic"]["icon"].string
     self.userTitle = data["topic"]["userTitle"].string
     self.user_nick_name = data["topic"]["user_nick_name"].string
+    // content
+    self.infors = [String:String]()
+    for content in data["topic"]["content"] {
+      self.infors![String((content.1)["type"])] = (content.1)["infor"].string
+    }
     for reply in data["list"] {
       reply_list.append(Reply(data: reply.1))
     }
