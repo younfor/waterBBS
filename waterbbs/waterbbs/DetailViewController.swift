@@ -24,14 +24,20 @@ class DetailViewController: UIViewController {
     self.loadData()
     // 头部
     self.header = NSBundle.mainBundle().loadNibNamed("DetailHeadeView", owner: nil, options: nil).first as? DetailHeaderView
-    //self.header?.frame = CGRectMake(0, 0, 300, 200)
     self.tableview.tableHeaderView = self.header
     //
   }
-  
   func loadData() {
     HttpTool.getHttpTool().topicDetail(self.topicId!, page: 1, onSuccess: { (data) -> Void in
+      
         self.header!.setData(data)
+      
+        NSOperationQueue.mainQueue().addOperationWithBlock({  [unowned self] () -> Void in
+            print(self.header!.height!)
+            self.header?.frame = CGRectMake(0, 0, self.view.frame.width, self.header!.height!)
+            self.tableview.tableHeaderView = self.header!
+        })
+      
       }) { (error) -> Void in
         print(error)
     }
