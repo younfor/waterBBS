@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SwiftyJSON
 class DetailHeaderView: UIView {
 
   @IBOutlet weak var icon: UIImageView!
@@ -21,11 +21,16 @@ class DetailHeaderView: UIView {
   @IBOutlet weak var mobileFrom: UILabel!
   
   @IBOutlet weak var textView: UITextView!
+  
+  var pics = Array<String>()
   var height:CGFloat?
   func setData(data:TopicDetail) {
-
+    
     if let url = data.icon {
       self.icon.sd_setImageWithURL(NSURL.init(string: url))
+    }
+    if data.title == nil {
+      return
     }
     self.topicTitle.text = data.title!
     self.userNick.text = data.user_nick_name!
@@ -33,20 +38,25 @@ class DetailHeaderView: UIView {
     // 计算时间
     self.mobileFrom.text = "\(self.time(data.create_date!))"
     // 主要内容
-    self.content(data.infors!)
+    for data in data.infors! {
+      self.content(data)
+    }
     // 调整高度
     self.textView.frame = CGRectMake(8, 95, self.textView.frame.width, self.textView!.contentSize.height)
-    self.height = CGRectGetMaxY(self.textView.frame)
+    self.height = CGRectGetMaxY(self.textView.frame) + 18
+    self.textView.userInteractionEnabled = false
+
     
   }
   func content(data:[String:String]) {
-    var pics = Array<String>()
-    for (type,text) in data {
-      print(type)
-      print(text)
+    let type = data["type"]!
+    let text = data["infor"]!
       if type == "1" {
-        // 大图片
-        pics.append(text)
+        self.insertImage(UIImage.init(),big: true)
+        // 插入大图
+        let imgView = UIImageView.init(frame: CGRectMake(0, self.textView.contentSize.height - self.frame.width - 10, self.frame.width, self.frame.width))
+        imgView.sd_setImageWithURL(NSURL.init(string: text))
+        self.textView.addSubview(imgView)
       } else if type == "0" {
         // 文本
         // 找出表情链接
@@ -71,13 +81,19 @@ class DetailHeaderView: UIView {
           }
         }
       }
-    }
+      else {
+        self.insertText(text)
+      }
   }
-  func insertImage(img:UIImage?) {
+  func insertImage(img:UIImage?,big:Bool = false) {
     // 图片转为富文本
     let att = NSTextAttachment()
     att.image = img//UIImage.init(named: "TopImage4")
-    att.bounds = CGRectMake(0, 0, 32, 32)
+    if big {
+      att.bounds = CGRectMake(0, 5, self.frame.width - 8, self.frame.width)
+    } else {
+      att.bounds = CGRectMake(0, 0, 32, 32)
+    }
     let attStr = NSAttributedString(attachment: att)
     // 初始化富文本
     let mutableStr = NSMutableAttributedString(attributedString: self.textView.attributedText)

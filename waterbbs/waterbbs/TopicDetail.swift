@@ -14,6 +14,7 @@ class TopicDetail: NSObject {
   var has_next:String?
   var total_num:String?
   var reply_list = Array<Reply>()
+  var forumName:String?
   // topic
   var title:String?
   var topic_id:String?
@@ -24,10 +25,12 @@ class TopicDetail: NSObject {
   var userTitle:String?
   var user_nick_name:String?
   // content
-  var infors:[String:String]?
+  var infors:[[String:String]]?
   var type:String?
   init(data:JSON) {
+    //print(data)
     self.page = data["page"].string
+    self.forumName = data["forumName"].string
     self.has_next = data["has_next"].string
     self.total_num = data["total_num"].string
     // topic 
@@ -40,10 +43,11 @@ class TopicDetail: NSObject {
     self.userTitle = data["topic"]["userTitle"].string
     self.user_nick_name = data["topic"]["user_nick_name"].string
     // content
-    self.infors = [String:String]()
+    self.infors = [[String:String]]()
     for content in data["topic"]["content"] {
-      self.infors![String((content.1)["type"])] = (content.1)["infor"].string
+      self.infors?.append(["infor":(content.1)["infor"].string!,"type":String((content.1)["type"])])
     }
+    // 评论
     for reply in data["list"] {
       reply_list.append(Reply(data: reply.1))
     }

@@ -15,6 +15,7 @@
 		1816FE891C22E91B0010B2A4 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1816FE881C22E91B0010B2A4 /* MainTableViewCell.swift */; };
 		1816FE8B1C22E94E0010B2A4 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1816FE8A1C22E94E0010B2A4 /* MainTableViewCell.xib */; };
 		1816FE8E1C23006D0010B2A4 /* NSString+Date.m in Sources */ = {isa = PBXBuildFile; fileRef = 1816FE8D1C23006D0010B2A4 /* NSString+Date.m */; };
+		182F67C21C2D3C9400F80BD1 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182F67C11C2D3C9400F80BD1 /* SnapKit.framework */; };
 		18426F9E1C22D61B002C096E /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18426F9D1C22D61B002C096E /* Topic.swift */; };
 		185C9B9E1C26D3050034E607 /* Title+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185C9B9C1C26D3050034E607 /* Title+CoreDataProperties.swift */; };
 		185C9B9F1C26D3050034E607 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185C9B9D1C26D3050034E607 /* Title.swift */; };
@@ -46,6 +47,8 @@
 		188CF7B11C1C4A9D006B7537 /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 188CF7B01C1C4A9D006B7537 /* UINavigationBar+Awesome.m */; };
 		188CF7B41C1C4B8B006B7537 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 188CF7B31C1C4B8B006B7537 /* UIImage+ImageEffects.m */; };
 		188CF7B61C1C51C8006B7537 /* MainNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188CF7B51C1C51C8006B7537 /* MainNavViewController.swift */; };
+		1890B74D1C2C1C34006BA298 /* ReplyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1890B74B1C2C1C34006BA298 /* ReplyCell.swift */; };
+		1890B74E1C2C1C34006BA298 /* ReplyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1890B74C1C2C1C34006BA298 /* ReplyCell.xib */; };
 		18A8E94F1C1D8C9F00C7CB92 /* HttpTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A8E94E1C1D8C9F00C7CB92 /* HttpTool.swift */; };
 		18D171661C244040006404CB /* GroupNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D171651C244040006404CB /* GroupNavViewController.swift */; };
 		18D7367F1C258FB000DBF18E /* Group+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D7367D1C258FB000DBF18E /* Group+CoreDataProperties.swift */; };
@@ -84,6 +87,7 @@
 		1816FE8A1C22E94E0010B2A4 /* MainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
 		1816FE8C1C23006D0010B2A4 /* NSString+Date.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Date.h"; sourceTree = "<group>"; };
 		1816FE8D1C23006D0010B2A4 /* NSString+Date.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Date.m"; sourceTree = "<group>"; };
+		182F67C11C2D3C9400F80BD1 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = "Pods/../build/Debug-iphoneos/SnapKit.framework"; sourceTree = "<group>"; };
 		18426F9D1C22D61B002C096E /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		185C9B9C1C26D3050034E607 /* Title+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Title+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		185C9B9D1C26D3050034E607 /* Title.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 		188CF7B21C1C4B8B006B7537 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		188CF7B31C1C4B8B006B7537 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		188CF7B51C1C51C8006B7537 /* MainNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavViewController.swift; sourceTree = "<group>"; };
+		1890B74B1C2C1C34006BA298 /* ReplyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyCell.swift; sourceTree = "<group>"; };
+		1890B74C1C2C1C34006BA298 /* ReplyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReplyCell.xib; sourceTree = "<group>"; };
 		18A8E94E1C1D8C9F00C7CB92 /* HttpTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpTool.swift; sourceTree = "<group>"; };
 		18D171651C244040006404CB /* GroupNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupNavViewController.swift; sourceTree = "<group>"; };
 		18D7367D1C258FB000DBF18E /* Group+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Group+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -154,6 +160,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				182F67C21C2D3C9400F80BD1 /* SnapKit.framework in Frameworks */,
 				18D736841C25985000DBF18E /* CoreData.framework in Frameworks */,
 				FF97EC53CC82B83FB6822394 /* Pods.framework in Frameworks */,
 			);
@@ -205,6 +212,8 @@
 				1816FE8A1C22E94E0010B2A4 /* MainTableViewCell.xib */,
 				186802C21C27F2200072F4D8 /* DetailHeadeView.xib */,
 				186802C41C27F3340072F4D8 /* DetailHeaderView.swift */,
+				1890B74B1C2C1C34006BA298 /* ReplyCell.swift */,
+				1890B74C1C2C1C34006BA298 /* ReplyCell.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -464,6 +473,7 @@
 		A460E8C6483E9F2E181B0C6C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				182F67C11C2D3C9400F80BD1 /* SnapKit.framework */,
 				18D736831C25985000DBF18E /* CoreData.framework */,
 				34B75D546B10532AA7557FC6 /* Pods.framework */,
 			);
@@ -578,6 +588,7 @@
 			files = (
 				188CF7571C1C3122006B7537 /* LaunchScreen.storyboard in Resources */,
 				188CF7541C1C3122006B7537 /* Assets.xcassets in Resources */,
+				1890B74E1C2C1C34006BA298 /* ReplyCell.xib in Resources */,
 				1816FE8B1C22E94E0010B2A4 /* MainTableViewCell.xib in Resources */,
 				188CF7521C1C3122006B7537 /* Main.storyboard in Resources */,
 				186802C31C27F2200072F4D8 /* DetailHeadeView.xib in Resources */,
@@ -675,6 +686,7 @@
 				186802BD1C27D3910072F4D8 /* Reply.swift in Sources */,
 				188CF79A1C1C3F4C006B7537 /* SDCycleScrollView.m in Sources */,
 				185C9B9F1C26D3050034E607 /* Title.swift in Sources */,
+				1890B74D1C2C1C34006BA298 /* ReplyCell.swift in Sources */,
 				188CF79F1C1C40EA006B7537 /* myUILabel.m in Sources */,
 				186802C51C27F3340072F4D8 /* DetailHeaderView.swift in Sources */,
 				18426F9E1C22D61B002C096E /* Topic.swift in Sources */,
@@ -832,6 +844,10 @@
 			baseConfigurationReference = 80F3FB5D1C9BBFBAA5608887 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = waterbbs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.younfor.waterbbs;
@@ -845,6 +861,10 @@
 			baseConfigurationReference = 1A6488AE28C1ECD7F4FE5804 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = waterbbs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.younfor.waterbbs;
