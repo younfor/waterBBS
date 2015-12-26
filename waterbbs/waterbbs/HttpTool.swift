@@ -25,12 +25,41 @@ class HttpTool: NSObject {
   let forumUrl = "forum/forumlist"
   let topicUrl = "forum/topiclist"
   let postUrl = "forum/postlist"
+  let messageHeartUrl = "message/heart"
+  let messageNotifyUrl = "message/notifylist"
+  let messageListUrl = "message/pmlist"
+  let messageSessionUrl = "message/pmsessionlist"
   // 一些私人参数
   let myboardId = "61"
   // 单例
   static let httpTool = HttpTool()
   class func getHttpTool() -> HttpTool {
     return httpTool
+  }
+  // 测试
+  func test() {
+    //self.login("cq361106306", password: "199288")
+    //self.atuserlist()
+    //if User.getUser().load() == false {
+    //    print("加载失败")
+    //} else {
+    //    print(User.getUser().userName)
+    //}
+    //self.topicPiclist()
+    //self.topicList(self.myboardId, page: 1)
+    self.msgGroup(1)
+    
+  }
+  // 获取消息会话列表
+  func msgGroup(page:Int,onSuccess:(() -> Void)?=nil, onFail:((String) -> Void)?=nil)  {
+ 
+    let para = "[{page:\(page),pageSize:\(self.pageSize)}]"
+    self.httpPost(self.baseUrl + self.messageSessionUrl, params: ["json":para], withLogin: true, onSuccess: { (data) -> () in
+        print(data)
+        onSuccess?()
+      }) { (error) -> () in
+        onFail?("请求失败:" + error)
+    }
   }
   // 获取具体帖子信息
   func topicDetail(topicId:String,page:Int,onSuccess:((TopicDetail) -> Void)?=nil, onFail:((String) -> Void)?=nil) {
@@ -113,19 +142,7 @@ class HttpTool: NSObject {
         onFail?("请求失败:" + error)
     }
   }
-  // 测试
-  func test() {
-    //self.login("cq361106306", password: "199288")
-    //self.atuserlist()
-    //if User.getUser().load() == false {
-    //    print("加载失败")
-    //} else {
-    //    print(User.getUser().userName)
-    //}
-    //self.topicPiclist()
-    //self.topicList(self.myboardId, page: 1)
-    
-  }
+  
   // 获取好友
   func atuserlist(onSuccess:(() -> Void)?=nil, onFail:((String) -> Void)?=nil) {
     self.httpPost(self.baseUrl + self.atuserUrl, params: [:], withLogin: true, onSuccess: { (data) -> () in
@@ -148,7 +165,7 @@ class HttpTool: NSObject {
     }
   }
   // 网络公共函数
-  func httpPost(url:String, var params:[String:AnyObject], withLogin:Bool, onSuccess:(JSON) -> Void, onFail:(String) -> Void) {
+  func httpPost(url:String, var params:[String:AnyObject], withLogin:Bool,onSuccess:(JSON) -> Void, onFail:(String) -> Void) {
     if withLogin {
       // 判断是否登录
       if !User.getUser().load() {
@@ -158,9 +175,10 @@ class HttpTool: NSObject {
       params["accessToken"] = self.accessToken
       params["accessSecret"] = self.accessSecret
     }
-    Alamofire.request(.POST, url, parameters: params, encoding: ParameterEncoding.URL, headers: nil).responseJSON { (res) -> Void in
+    var p = ParameterEncoding.URL
+    Alamofire.request(.POST, url, parameters: params, encoding: p, headers: nil).responseJSON { (res) -> Void in
       guard res.result.error == nil else {
-        onFail(url)
+        onFail(url+"\(res.result.error)")
         return
       }
       
