@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -16,14 +16,12 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="卖点二手哑铃" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3GY-H6-3Yt">
                         <rect key="frame" x="8" y="8" width="230" height="20.5"/>
-                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vky-rP-DiF">
                         <rect key="frame" x="246" y="8" width="64" height="64"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="64" id="Iah-MX-NK7"/>
                             <constraint firstAttribute="height" constant="64" id="beg-ad-0Fs"/>
@@ -31,21 +29,18 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这是一个蛋挞的小故事" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uy6-gD-rat">
                         <rect key="frame" x="8" y="34" width="230" height="17"/>
-                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="阅读100 评论20 用户" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uz1-Tc-99l">
                         <rect key="frame" x="8" y="56" width="152.5" height="14.5"/>
-                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="12.06 7:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OI5-rG-fUg">
                         <rect key="frame" x="167.5" y="56" width="70" height="14.5"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="70" id="gbI-Pz-HZD"/>
                         </constraints>
@@ -54,7 +49,6 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <animations/>
                 <constraints>
                     <constraint firstItem="Uy6-gD-rat" firstAttribute="top" secondItem="3GY-H6-3Yt" secondAttribute="bottom" constant="5" id="03f-JF-qtg"/>
                     <constraint firstItem="Vky-rP-DiF" firstAttribute="leading" secondItem="OI5-rG-fUg" secondAttribute="trailing" constant="8" id="0cR-KP-ejT"/>
@@ -71,7 +65,6 @@
                     <constraint firstItem="Vky-rP-DiF" firstAttribute="leading" secondItem="Uy6-gD-rat" secondAttribute="trailing" constant="8" id="wMt-iW-RLq"/>
                 </constraints>
             </tableViewCellContentView>
-            <animations/>
             <inset key="separatorInset" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="count" destination="Uz1-Tc-99l" id="agK-YA-olq"/>

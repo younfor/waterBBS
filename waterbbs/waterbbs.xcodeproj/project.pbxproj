@@ -56,6 +56,12 @@
 		18D736821C25908000DBF18E /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D736811C25908000DBF18E /* DBManager.swift */; };
 		18D736841C25985000DBF18E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D736831C25985000DBF18E /* CoreData.framework */; };
 		18E785131C24FDCF00413A70 /* dataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18E785111C24FDCF00413A70 /* dataModel.xcdatamodeld */; };
+		18ECDD581C31728300F88B63 /* MsgGroupHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18ECDD571C31728300F88B63 /* MsgGroupHeaderCell.xib */; };
+		18ECDD5A1C3172B800F88B63 /* MsgGroupContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18ECDD591C3172B800F88B63 /* MsgGroupContentCell.xib */; };
+		18ECDD5C1C31767C00F88B63 /* MsgTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ECDD5B1C31767C00F88B63 /* MsgTableViewController.swift */; };
+		18ECDD5E1C317CBB00F88B63 /* MsgNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ECDD5D1C317CBB00F88B63 /* MsgNavController.swift */; };
+		18ECDD601C317F8C00F88B63 /* MsgGroupHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ECDD5F1C317F8C00F88B63 /* MsgGroupHeaderCell.swift */; };
+		18ECDD621C317FA000F88B63 /* MsgGroupContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ECDD611C317FA000F88B63 /* MsgGroupContentCell.swift */; };
 		18F203FA1C23CB7800E38517 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F203F91C23CB7800E38517 /* GroupViewController.swift */; };
 		FF97EC53CC82B83FB6822394 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B75D546B10532AA7557FC6 /* Pods.framework */; };
 /* End PBXBuildFile section */
@@ -149,6 +155,12 @@
 		18D736811C25908000DBF18E /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		18D736831C25985000DBF18E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		18E785121C24FDCF00413A70 /* dataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = dataModel.xcdatamodel; sourceTree = "<group>"; };
+		18ECDD571C31728300F88B63 /* MsgGroupHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MsgGroupHeaderCell.xib; sourceTree = "<group>"; };
+		18ECDD591C3172B800F88B63 /* MsgGroupContentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MsgGroupContentCell.xib; sourceTree = "<group>"; };
+		18ECDD5B1C31767C00F88B63 /* MsgTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgTableViewController.swift; sourceTree = "<group>"; };
+		18ECDD5D1C317CBB00F88B63 /* MsgNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgNavController.swift; sourceTree = "<group>"; };
+		18ECDD5F1C317F8C00F88B63 /* MsgGroupHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgGroupHeaderCell.swift; sourceTree = "<group>"; };
+		18ECDD611C317FA000F88B63 /* MsgGroupContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgGroupContentCell.swift; sourceTree = "<group>"; };
 		18F203F91C23CB7800E38517 /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		1A6488AE28C1ECD7F4FE5804 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		34B75D546B10532AA7557FC6 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -317,6 +329,9 @@
 		188CF77E1C1C324C006B7537 /* message */ = {
 			isa = PBXGroup;
 			children = (
+				18ECDD561C31725800F88B63 /* controller */,
+				18ECDD551C31725500F88B63 /* model */,
+				18ECDD541C31724500F88B63 /* view */,
 			);
 			name = message;
 			sourceTree = "<group>";
@@ -450,6 +465,33 @@
 				186802C01C27E3A50072F4D8 /* Constant.swift */,
 			);
 			name = coredata;
+			sourceTree = "<group>";
+		};
+		18ECDD541C31724500F88B63 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				18ECDD571C31728300F88B63 /* MsgGroupHeaderCell.xib */,
+				18ECDD591C3172B800F88B63 /* MsgGroupContentCell.xib */,
+				18ECDD5F1C317F8C00F88B63 /* MsgGroupHeaderCell.swift */,
+				18ECDD611C317FA000F88B63 /* MsgGroupContentCell.swift */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		18ECDD551C31725500F88B63 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		18ECDD561C31725800F88B63 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				18ECDD5B1C31767C00F88B63 /* MsgTableViewController.swift */,
+				18ECDD5D1C317CBB00F88B63 /* MsgNavController.swift */,
+			);
+			name = controller;
 			sourceTree = "<group>";
 		};
 		18F203F81C23CB5C00E38517 /* controller */ = {
@@ -590,8 +632,10 @@
 				188CF7541C1C3122006B7537 /* Assets.xcassets in Resources */,
 				1890B74E1C2C1C34006BA298 /* ReplyCell.xib in Resources */,
 				1816FE8B1C22E94E0010B2A4 /* MainTableViewCell.xib in Resources */,
+				18ECDD581C31728300F88B63 /* MsgGroupHeaderCell.xib in Resources */,
 				188CF7521C1C3122006B7537 /* Main.storyboard in Resources */,
 				186802C31C27F2200072F4D8 /* DetailHeadeView.xib in Resources */,
+				18ECDD5A1C3172B800F88B63 /* MsgGroupContentCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,6 +711,8 @@
 				188CF7B41C1C4B8B006B7537 /* UIImage+ImageEffects.m in Sources */,
 				1816FE8E1C23006D0010B2A4 /* NSString+Date.m in Sources */,
 				188CF7981C1C3F4C006B7537 /* TAPageControl.m in Sources */,
+				18ECDD621C317FA000F88B63 /* MsgGroupContentCell.swift in Sources */,
+				18ECDD5E1C317CBB00F88B63 /* MsgNavController.swift in Sources */,
 				188CF7A91C1C41D3006B7537 /* MainViewController.swift in Sources */,
 				18D171661C244040006404CB /* GroupNavViewController.swift in Sources */,
 				188CF7A61C1C4122006B7537 /* GradientView.m in Sources */,
@@ -686,6 +732,7 @@
 				186802BD1C27D3910072F4D8 /* Reply.swift in Sources */,
 				188CF79A1C1C3F4C006B7537 /* SDCycleScrollView.m in Sources */,
 				185C9B9F1C26D3050034E607 /* Title.swift in Sources */,
+				18ECDD601C317F8C00F88B63 /* MsgGroupHeaderCell.swift in Sources */,
 				1890B74D1C2C1C34006BA298 /* ReplyCell.swift in Sources */,
 				188CF79F1C1C40EA006B7537 /* myUILabel.m in Sources */,
 				186802C51C27F3340072F4D8 /* DetailHeaderView.swift in Sources */,
@@ -696,6 +743,7 @@
 				186802C11C27E3A50072F4D8 /* Constant.swift in Sources */,
 				188CF7961C1C3F4C006B7537 /* TAAnimatedDotView.m in Sources */,
 				188CF74D1C1C3122006B7537 /* AppDelegate.swift in Sources */,
+				18ECDD5C1C31767C00F88B63 /* MsgTableViewController.swift in Sources */,
 				18A8E94F1C1D8C9F00C7CB92 /* HttpTool.swift in Sources */,
 				18E785131C24FDCF00413A70 /* dataModel.xcdatamodeld in Sources */,
 				188CF7991C1C3F4C006B7537 /* SDCollectionViewCell.m in Sources */,

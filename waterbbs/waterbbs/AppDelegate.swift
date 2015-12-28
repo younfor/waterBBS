@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 测试
         //HttpTool.getHttpTool().login("cq361106306", password: "199288")
         HttpTool.getHttpTool().test()
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
         return true
     }
 
