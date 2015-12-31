@@ -47,16 +47,20 @@ class HttpTool: NSObject {
     //}
     //self.topicPiclist()
     //self.topicList(self.myboardId, page: 1)
-    self.msgGroup(1)
+    //self.msgGroup(1)
     
   }
   // 获取消息会话列表
-  func msgGroup(page:Int,onSuccess:(() -> Void)?=nil, onFail:((String) -> Void)?=nil)  {
- 
+  func msgGroup(page:Int,onSuccess:(([MessageGroup]) -> Void)?=nil, onFail:((String) -> Void)?=nil)  {
+    
     let para = "[{page:\(page),pageSize:\(self.pageSize)}]"
     self.httpPost(self.baseUrl + self.messageSessionUrl, params: ["json":para], withLogin: true, onSuccess: { (data) -> () in
-        print(data)
-        onSuccess?()
+      var msgs = Array<MessageGroup>()
+      for m in data["body"]["list"] {
+        msgs.append(MessageGroup.init(data: m.1))
+      }
+      //print(data)
+      onSuccess?(msgs)
       }) { (error) -> () in
         onFail?("请求失败:" + error)
     }
@@ -175,7 +179,7 @@ class HttpTool: NSObject {
       params["accessToken"] = self.accessToken
       params["accessSecret"] = self.accessSecret
     }
-    var p = ParameterEncoding.URL
+    let p = ParameterEncoding.URL
     Alamofire.request(.POST, url, parameters: params, encoding: p, headers: nil).responseJSON { (res) -> Void in
       guard res.result.error == nil else {
         onFail(url+"\(res.result.error)")

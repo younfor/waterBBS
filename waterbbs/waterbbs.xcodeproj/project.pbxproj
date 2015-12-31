@@ -17,6 +17,7 @@
 		1816FE8E1C23006D0010B2A4 /* NSString+Date.m in Sources */ = {isa = PBXBuildFile; fileRef = 1816FE8D1C23006D0010B2A4 /* NSString+Date.m */; };
 		182F67C21C2D3C9400F80BD1 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182F67C11C2D3C9400F80BD1 /* SnapKit.framework */; };
 		18426F9E1C22D61B002C096E /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18426F9D1C22D61B002C096E /* Topic.swift */; };
+		185841731C34F0EC000326AE /* MessageGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185841721C34F0EC000326AE /* MessageGroup.swift */; };
 		185C9B9E1C26D3050034E607 /* Title+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185C9B9C1C26D3050034E607 /* Title+CoreDataProperties.swift */; };
 		185C9B9F1C26D3050034E607 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185C9B9D1C26D3050034E607 /* Title.swift */; };
 		186802BB1C27D1F50072F4D8 /* TopicDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186802BA1C27D1F50072F4D8 /* TopicDetail.swift */; };
@@ -95,6 +96,7 @@
 		1816FE8D1C23006D0010B2A4 /* NSString+Date.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Date.m"; sourceTree = "<group>"; };
 		182F67C11C2D3C9400F80BD1 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = "Pods/../build/Debug-iphoneos/SnapKit.framework"; sourceTree = "<group>"; };
 		18426F9D1C22D61B002C096E /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
+		185841721C34F0EC000326AE /* MessageGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageGroup.swift; sourceTree = "<group>"; };
 		185C9B9C1C26D3050034E607 /* Title+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Title+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		185C9B9D1C26D3050034E607 /* Title.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		186802BA1C27D1F50072F4D8 /* TopicDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicDetail.swift; sourceTree = "<group>"; };
@@ -481,6 +483,7 @@
 		18ECDD551C31725500F88B63 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				185841721C34F0EC000326AE /* MessageGroup.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -733,6 +736,7 @@
 				188CF79A1C1C3F4C006B7537 /* SDCycleScrollView.m in Sources */,
 				185C9B9F1C26D3050034E607 /* Title.swift in Sources */,
 				18ECDD601C317F8C00F88B63 /* MsgGroupHeaderCell.swift in Sources */,
+				185841731C34F0EC000326AE /* MessageGroup.swift in Sources */,
 				1890B74D1C2C1C34006BA298 /* ReplyCell.swift in Sources */,
 				188CF79F1C1C40EA006B7537 /* myUILabel.m in Sources */,
 				186802C51C27F3340072F4D8 /* DetailHeaderView.swift in Sources */,

@@ -12,6 +12,9 @@ class MsgTableViewController: UITableViewController {
   
   let cell_header = "cell_header"
   let cell_content = "cell_content"
+  var msgGroups = Array<MessageGroup>()
+  var curPage = 1
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     // 设置白色标题
@@ -22,11 +25,23 @@ class MsgTableViewController: UITableViewController {
     self.tableView.registerNib(UINib.init(nibName: "MsgGroupHeaderCell", bundle: nil), forCellReuseIdentifier: self.cell_header)
     self.tableView.registerNib(UINib.init(nibName: "MsgGroupContentCell", bundle: nil), forCellReuseIdentifier: self.cell_content)
     self.tableView.rowHeight = 68
+    self.loadData()
+  }
+  /**
+   加载网络数据
+   */
+  func loadData() {
+    HttpTool.getHttpTool().msgGroup(self.curPage, onSuccess: { (data) -> Void in
+      self.msgGroups.removeAll()
+      self.msgGroups.appendContentsOf(data)
+      self.tableView.reloadData()
+      }) { (error) -> Void in
+        print(error)
+    }
   }
   
-  
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 5
+    return self.msgGroups.count + 3
   }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -36,55 +51,11 @@ class MsgTableViewController: UITableViewController {
       return cell
     } else {
       let cell = tableView.dequeueReusableCellWithIdentifier(self.cell_content) as! MsgGroupContentCell
+      cell.setData(self.msgGroups[indexPath.row - 3])
       return cell
     }
   
   }
 
-  
-  /*
-  // Override to support conditional editing of the table view.
-  override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-  // Return false if you do not want the specified item to be editable.
-  return true
-  }
-  */
-  
-  /*
-  // Override to support editing the table view.
-  override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-  if editingStyle == .Delete {
-  // Delete the row from the data source
-  tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-  } else if editingStyle == .Insert {
-  // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-  }
-  }
-  */
-  
-  /*
-  // Override to support rearranging the table view.
-  override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-  
-  }
-  */
-  
-  /*
-  // Override to support conditional rearranging of the table view.
-  override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-  // Return false if you do not want the item to be re-orderable.
-  return true
-  }
-  */
-  
-  /*
-  // MARK: - Navigation
-  
-  // In a storyboard-based application, you will often want to do a little preparation before navigation
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-  // Get the new view controller using segue.destinationViewController.
-  // Pass the selected object to the new view controller.
-  }
-  */
   
 }
