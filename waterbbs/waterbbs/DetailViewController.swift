@@ -69,6 +69,6 @@ class DetailViewController: UIViewController,UITableViewDataSource ,UITableViewD
     if r.quote_height != nil {
       quote_h = r.quote_height!
     }
-    return quote_h + r.main_height! + 50
+    return quote_h + r.main_height! + 60
   }
 }

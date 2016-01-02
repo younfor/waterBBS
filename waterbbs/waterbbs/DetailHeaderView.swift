@@ -42,8 +42,8 @@ class DetailHeaderView: UIView {
       self.content(data)
     }
     // 调整高度
-    self.textView.frame = CGRectMake(8, 95, self.textView.frame.width, self.textView!.contentSize.height)
-    self.height = CGRectGetMaxY(self.textView.frame) + 18
+    self.textView.frame = CGRectMake(8, 95, self.textView.frame.width, self.textView!.heightForContent())
+    self.height = CGRectGetMaxY(self.textView.frame) + 28
     self.textView.userInteractionEnabled = false
 
     
@@ -54,7 +54,7 @@ class DetailHeaderView: UIView {
       if type == "1" {
         self.insertImage(UIImage.init(),big: true)
         // 插入大图
-        let imgView = UIImageView.init(frame: CGRectMake(0, self.textView.contentSize.height - self.frame.width - 10, self.frame.width, self.frame.width))
+        let imgView = UIImageView.init(frame: CGRectMake(0, self.textView.heightForContent() - self.frame.width , self.frame.width, self.frame.width))
         imgView.sd_setImageWithURL(NSURL.init(string: text))
         self.textView.addSubview(imgView)
       } else if type == "0" {

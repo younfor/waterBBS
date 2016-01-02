@@ -58,13 +58,13 @@ class Reply: NSObject {
           self.content(self.mainTextView!,data: data)
     }
     // 更新高度
-    self.main_height = self.mainTextView!.contentSize.height
+    self.main_height = self.mainTextView!.heightForContent() + 10
     // 更新引用
     if String(data["is_quote"]) == "1" {
       self.quote_TextView = UITextView.init(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width - 70, 50))
       self.insertText(self.quote_TextView!, data: data["quote_content"].string!)
       // 更新高度
-      self.quote_height = self.quote_TextView!.contentSize.height
+      self.quote_height = self.quote_TextView!.heightForContent() + 10
     }
     
   }
@@ -74,7 +74,7 @@ class Reply: NSObject {
     if type == "1" {
       self.insertImage(textView,img: UIImage.init(),big: true)
       // 插入大图
-      let imgView = UIImageView.init(frame: CGRectMake(0, textView.contentSize.height - UIScreen.mainScreen().bounds.width - 10, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.width))
+      let imgView = UIImageView.init(frame: CGRectMake(0, textView.heightForContent() - UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.width))
       imgView.sd_setImageWithURL(NSURL.init(string: text))
       textView.addSubview(imgView)
     } else if type == "0" {

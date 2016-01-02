@@ -51,6 +51,7 @@
 		1890B74D1C2C1C34006BA298 /* ReplyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1890B74B1C2C1C34006BA298 /* ReplyCell.swift */; };
 		1890B74E1C2C1C34006BA298 /* ReplyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1890B74C1C2C1C34006BA298 /* ReplyCell.xib */; };
 		18A8E94F1C1D8C9F00C7CB92 /* HttpTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A8E94E1C1D8C9F00C7CB92 /* HttpTool.swift */; };
+		18C35D8D1C37EF3B004C7ADF /* Extention+UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C35D8C1C37EF3B004C7ADF /* Extention+UITextView.swift */; };
 		18D171661C244040006404CB /* GroupNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D171651C244040006404CB /* GroupNavViewController.swift */; };
 		18D7367F1C258FB000DBF18E /* Group+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D7367D1C258FB000DBF18E /* Group+CoreDataProperties.swift */; };
 		18D736801C258FB000DBF18E /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D7367E1C258FB000DBF18E /* Group.swift */; };
@@ -151,6 +152,7 @@
 		1890B74B1C2C1C34006BA298 /* ReplyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyCell.swift; sourceTree = "<group>"; };
 		1890B74C1C2C1C34006BA298 /* ReplyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReplyCell.xib; sourceTree = "<group>"; };
 		18A8E94E1C1D8C9F00C7CB92 /* HttpTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpTool.swift; sourceTree = "<group>"; };
+		18C35D8C1C37EF3B004C7ADF /* Extention+UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extention+UITextView.swift"; sourceTree = "<group>"; };
 		18D171651C244040006404CB /* GroupNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupNavViewController.swift; sourceTree = "<group>"; };
 		18D7367D1C258FB000DBF18E /* Group+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Group+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		18D7367E1C258FB000DBF18E /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 				188CF7821C1C3F4C006B7537 /* SDCycleScrollView */,
 				1816FE8C1C23006D0010B2A4 /* NSString+Date.h */,
 				1816FE8D1C23006D0010B2A4 /* NSString+Date.m */,
+				18C35D8C1C37EF3B004C7ADF /* Extention+UITextView.swift */,
 			);
 			name = framework;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 				TargetAttributes = {
 					188CF7481C1C3122006B7537 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = T8459S584T;
 					};
 					188CF75C1C1C3122006B7537 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -747,6 +751,7 @@
 				186802C11C27E3A50072F4D8 /* Constant.swift in Sources */,
 				188CF7961C1C3F4C006B7537 /* TAAnimatedDotView.m in Sources */,
 				188CF74D1C1C3122006B7537 /* AppDelegate.swift in Sources */,
+				18C35D8D1C37EF3B004C7ADF /* Extention+UITextView.swift in Sources */,
 				18ECDD5C1C31767C00F88B63 /* MsgTableViewController.swift in Sources */,
 				18A8E94F1C1D8C9F00C7CB92 /* HttpTool.swift in Sources */,
 				18E785131C24FDCF00413A70 /* dataModel.xcdatamodeld in Sources */,
@@ -896,11 +901,13 @@
 			baseConfigurationReference = 80F3FB5D1C9BBFBAA5608887 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = waterbbs/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.younfor.waterbbs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -913,11 +920,13 @@
 			baseConfigurationReference = 1A6488AE28C1ECD7F4FE5804 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = waterbbs/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.younfor.waterbbs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
