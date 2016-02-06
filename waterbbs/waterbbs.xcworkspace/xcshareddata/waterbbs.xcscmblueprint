@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "A5E96300A3195837F1BD4992D0A837EA44996E9C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "A5E96300A3195837F1BD4992D0A837EA44996E9C" : 0,
+    "04E7976FFBB90AD3BB1913AAF255083A251EB864" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "286835EF-0F42-4A21-A821-3DD0AE003AB4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "A5E96300A3195837F1BD4992D0A837EA44996E9C" : "waterBBS\/",
+    "04E7976FFBB90AD3BB1913AAF255083A251EB864" : "waterBBS\/waterbbs\/waterbbs\/HQRefresh\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "waterbbs",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "waterbbs\/waterbbs.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/qianhongqiang\/HQRefresh.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "04E7976FFBB90AD3BB1913AAF255083A251EB864"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/younfor\/waterBBS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A5E96300A3195837F1BD4992D0A837EA44996E9C"
+    }
+  ]
+}

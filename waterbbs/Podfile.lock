@@ -7,9 +7,9 @@ PODS:
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
-  - Alamofire (~> 3.0)
-  - SDWebImage (~> 3.7)
-  - SnapKit (~> 0.15.0)
+  - Alamofire
+  - SDWebImage
+  - SnapKit
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 EXTERNAL SOURCES:

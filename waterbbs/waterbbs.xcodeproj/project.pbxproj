@@ -26,6 +26,7 @@
 		186802C11C27E3A50072F4D8 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186802C01C27E3A50072F4D8 /* Constant.swift */; };
 		186802C31C27F2200072F4D8 /* DetailHeadeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186802C21C27F2200072F4D8 /* DetailHeadeView.xib */; };
 		186802C51C27F3340072F4D8 /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186802C41C27F3340072F4D8 /* DetailHeaderView.swift */; };
+		187153641C66182700641389 /* ZJRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187153631C66182700641389 /* ZJRefreshControl.swift */; };
 		188CF74D1C1C3122006B7537 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188CF74C1C1C3122006B7537 /* AppDelegate.swift */; };
 		188CF7521C1C3122006B7537 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188CF7501C1C3122006B7537 /* Main.storyboard */; };
 		188CF7541C1C3122006B7537 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 188CF7531C1C3122006B7537 /* Assets.xcassets */; };
@@ -106,6 +107,7 @@
 		186802C01C27E3A50072F4D8 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		186802C21C27F2200072F4D8 /* DetailHeadeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailHeadeView.xib; sourceTree = "<group>"; };
 		186802C41C27F3340072F4D8 /* DetailHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
+		187153631C66182700641389 /* ZJRefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZJRefreshControl.swift; sourceTree = "<group>"; };
 		188CF7491C1C3122006B7537 /* waterbbs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = waterbbs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		188CF74C1C1C3122006B7537 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		188CF7511C1C3122006B7537 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 		188CF7811C1C3F03006B7537 /* framework */ = {
 			isa = PBXGroup;
 			children = (
+				187153631C66182700641389 /* ZJRefreshControl.swift */,
 				188CF7AB1C1C4A5E006B7537 /* AwsomeNavigationBar */,
 				188CF7AA1C1C4A49006B7537 /* ParallaxHeaderView */,
 				188CF7A01C1C4104006B7537 /* SWRevealViewController */,
@@ -741,6 +744,7 @@
 				185C9B9F1C26D3050034E607 /* Title.swift in Sources */,
 				18ECDD601C317F8C00F88B63 /* MsgGroupHeaderCell.swift in Sources */,
 				185841731C34F0EC000326AE /* MessageGroup.swift in Sources */,
+				187153641C66182700641389 /* ZJRefreshControl.swift in Sources */,
 				1890B74D1C2C1C34006BA298 /* ReplyCell.swift in Sources */,
 				188CF79F1C1C40EA006B7537 /* myUILabel.m in Sources */,
 				186802C51C27F3340072F4D8 /* DetailHeaderView.swift in Sources */,

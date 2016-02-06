@@ -114,7 +114,7 @@ class GroupViewController: UITableViewController {
     } else {
       // 跳转到首页控制器
       self.tabBarController?.selectedIndex = 0
-      NSNotificationCenter.defaultCenter().postNotificationName("mainReload", object: child.board_id)
+      NSNotificationCenter.defaultCenter().postNotificationName("mainReload", object: ["id":child.board_id,"name":child.board_name])
     }
   }
   
@@ -145,6 +145,7 @@ class GroupViewController: UITableViewController {
       cell?.accessoryType = UITableViewCellAccessoryType.None
     } else {
       cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
+      cell!.detailTextLabel?.text = ""
     }
     return cell!
   }

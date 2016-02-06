@@ -11,6 +11,8 @@ import UIKit
 class MainViewController: UITableViewController,SDCycleScrollViewDelegate, ParallaxHeaderViewDelegate,UIGestureRecognizerDelegate {
   
   @IBOutlet weak var titleTop: UILabel!
+  // 刷新控件
+  var refresh:ZJRefreshControl!
   // 当前页数
   var curPage = 1
   // 触摸
@@ -42,12 +44,23 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
     self.tableView.registerNib(UINib.init(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: self.cell)
     self.tableView.rowHeight = 80
     self.loadTopics(true)
-    // 收到通知
+    // 下拉刷新
+    refresh = ZJRefreshControl(scrollView: tableView, refreshBlock: { () -> () in
+      self.loadTopics(true)
+      }, loadmoreBlock: { () -> () in
+        print("上拉加载更多")
+        self.loadMore()
+    })
+    // 代理
+    tabBarController?.delegate = self
+    // 通知
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "mainReload:", name: "mainReload", object: nil)
   }
   func mainReload(noti:NSNotification) {
-    MainViewController.forumID = noti.object as! String
+    let obj  = noti.object as! [String:String]
+    MainViewController.forumID = obj["id"]!
     print("准备展示\(MainViewController.forumID)")
+    self.titleTop.text = obj["name"]!
     self.loadTopics(true)
   }
   // 上拉加载更多
@@ -64,16 +77,24 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
         print("数据库没有首页信息")
       }
     }
+    print(MainViewController.forumID)
     // 网络操作
     HttpTool.getHttpTool().topicList(MainViewController.forumID, page: self.curPage, onSuccess: { (datas) -> Void in
-      // 最新主题
+      // 更新表
       if clear {
         self.topics.removeAll()
+        print("缓存数据库")
+        DBManager.DBAddTitleList(datas)
       }
       self.topics.appendContentsOf(datas)
-      print("缓存数据库")
-      DBManager.DBAddTitleList(datas)
       self.tableView.reloadData()
+      if clear {
+        self.refresh.endRefreshing()
+      } else {
+        self.refresh.endLoadingmore()
+      }
+      
+      // 更新head
       var pics = Array<String>()
       var titles = Array<String>()
       // 最新图片-最大6张
@@ -144,12 +165,12 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
       self.titleTop.alpha = 1
     }
     //tabBar
-    if offsetY > 0 && lastTouchY - offsetY < 0  {
-      self.tabBarController?.tabBar.alpha = 0
-    } else {
-      self.tabBarController?.tabBar.alpha = 1
-    }
-    lastTouchY = offsetY
+//    if offsetY > 0 && lastTouchY - offsetY < 0  {
+//      self.tabBarController?.tabBar.alpha = 0
+//    } else {
+//      self.tabBarController?.tabBar.alpha = 1
+//    }
+//    lastTouchY = offsetY
     
   }
   // tableview
@@ -170,6 +191,12 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
     }
     self.navigationController?.pushViewController(vc, animated: true)
   }
-  
-  
+}
+// MARK - delegate
+extension MainViewController: UITabBarControllerDelegate {
+  func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
+    MainViewController.forumID = ""
+    self.titleTop.text = "首页"
+    self.loadTopics(true)
+  }
 }
