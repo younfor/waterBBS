@@ -8,17 +8,32 @@
 
 import UIKit
 
-class DetailViewController: UIViewController,UITableViewDataSource ,UITableViewDelegate{
+class DetailViewController: UIViewController,UITableViewDataSource ,UITableViewDelegate,UIScrollViewDelegate{
   
   @IBOutlet weak var tableview: UITableView!
   var topicId:String?
   var forumId:String?
+  var pid:String?
   let cell = "ReplyCell"
   weak var header:DetailHeaderView?
   var replys:[Reply] = [Reply]()
 
+  @IBOutlet weak var replyLabel: UITextField!
+  // 回复帖子
+  @IBAction func onReply(sender: AnyObject) {
+    if replyLabel.text != "" {
+      HttpTool.getHttpTool().replyTopic(["fid":forumId!,"tid":topicId!,"replyId":pid!,"content":replyLabel.text!], onSuccess: { () -> Void in
+        print("回复成功")
+        self.loadData()
+        }, onFail: { (e) -> Void in
+          print(e)
+      })
+    }
+    
+  }
   override func viewDidLoad() {
     super.viewDidLoad()
+    print("fid:\(forumId),tid:\(topicId)")
     // tableview
     self.tableview.tableFooterView = UILabel()
     self.tableview.dataSource = self
@@ -33,6 +48,35 @@ class DetailViewController: UIViewController,UITableViewDataSource ,UITableViewD
     self.header = NSBundle.mainBundle().loadNibNamed("DetailHeadeView", owner: nil, options: nil).first as? DetailHeaderView
     self.tableview.tableHeaderView = self.header
     //
+    setupKeyBoard()
+  }
+  func scrollViewDidScroll(scrollView: UIScrollView) {
+    if self.replyLabel.isFirstResponder() {
+      // 没有弹出键盘
+      UIView.animateWithDuration((NSTimeInterval)(0.2), animations: {
+        self.view!.transform = CGAffineTransformIdentity
+      })
+      self.replyLabel.resignFirstResponder()
+    }
+  }
+  // 键盘弹出
+  func setupKeyBoard() {
+    // 监听键盘弹出
+    NSNotificationCenter.defaultCenter().addObserver(self, selector:"onKeyBoard:" , name: UIKeyboardWillChangeFrameNotification, object: nil)
+  }
+  
+  func onKeyBoard(note:NSNotification) {
+    let durtion = note.userInfo![UIKeyboardAnimationDurationUserInfoKey]?.floatValue
+    let f = note.userInfo![UIKeyboardFrameEndUserInfoKey]?.CGRectValue
+    if f?.origin.y == self.view.frame.height {
+      // 没有弹出键盘
+      UIView.animateWithDuration((NSTimeInterval)(durtion!), animations: {
+        self.view!.transform = CGAffineTransformIdentity
+      })
+    } else {
+      UIView.animateWithDuration((NSTimeInterval)(durtion!), animations: {                self.view!.transform = CGAffineTransformMakeTranslation(0, -f!.size.height + UIScreen.mainScreen().bounds.height - CGRectGetMaxY(self.replyLabel.frame) - 2);
+      })
+    }
   }
   @IBOutlet weak var titleLabel: UILabel!
   func loadData() {
@@ -44,6 +88,8 @@ class DetailViewController: UIViewController,UITableViewDataSource ,UITableViewD
         self.header?.frame = CGRectMake(0, 0, self.view.frame.width, self.header!.height!)
         self.tableview.tableHeaderView = self.header!
         })
+      // 设置pid
+      self.pid = data.reply_posts_id
       // 设置评论
       self.replys = data.reply_list
       print("\(self.replys.count)条评论")

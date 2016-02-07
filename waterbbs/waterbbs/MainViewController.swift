@@ -24,6 +24,7 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
   // tableview
   lazy var topics = Array<Topic>()
   lazy var topTopicIds = Array<String>()
+  lazy var topForumIds = Array<String>()
   static var forumID = ""
   let cell = "mainCell"
   override func viewDidLoad() {
@@ -108,6 +109,7 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
       var pics = Array<String>()
       var titles = Array<String>()
       self.topTopicIds.removeAll()
+      self.topForumIds.removeAll()
       // 最新图片-最大6张
       var i = 0
       for topic:Topic in datas {
@@ -115,6 +117,7 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
           pics.append(topic.pic_path!)
           titles.append(topic.title)
           self.topTopicIds.append(topic.topic_id!)
+          self.topForumIds.append(topic.board_id!)
         }
         if i++ > 6 {
           break
@@ -150,6 +153,7 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
   func cycleScrollView(cycleScrollView: SDCycleScrollView!, didSelectItemAtIndex index: Int) {
     let vc = self.storyboard?.instantiateViewControllerWithIdentifier("detailVC") as! DetailViewController
     vc.topicId = topTopicIds[index]//
+    vc.forumId = topForumIds[index]
     self.navigationController?.pushViewController(vc, animated: true)
     print("选中\(index)")
   }
@@ -201,6 +205,7 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
     let topic = self.topics[indexPath.row]
     let vc = self.storyboard?.instantiateViewControllerWithIdentifier("detailVC") as! DetailViewController
     vc.topicId = topic.topic_id
+    vc.forumId = topic.board_id
     if topic.sourceWebUrl != nil {
       print(topic.sourceWebUrl)
     }

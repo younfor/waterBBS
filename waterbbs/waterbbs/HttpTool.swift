@@ -29,6 +29,7 @@ class HttpTool: NSObject {
   let messageNotifyUrl = "message/notifylist"
   let messageListUrl = "message/pmlist"
   let messageSessionUrl = "message/pmsessionlist"
+  let replyUrl = "forum/topicadmin"
   // 一些私人参数
   let myboardId = "61"
   // 单例
@@ -68,6 +69,7 @@ class HttpTool: NSObject {
   // 获取具体帖子信息
   func topicDetail(topicId:String,page:Int,onSuccess:((TopicDetail) -> Void)?=nil, onFail:((String) -> Void)?=nil) {
     self.httpPost(self.baseUrl + self.postUrl, params: ["page":page,"topicId":topicId,"pageSize":self.pageSize], withLogin: true, onSuccess: { (data) -> () in
+      print(data)
       let topicdetail = TopicDetail(data: data)
       onSuccess?(topicdetail)
       }) { (error) -> () in
@@ -160,6 +162,25 @@ class HttpTool: NSObject {
   // 获取包含图片的帖子
   func topicPiclist(onSuccess:(() -> Void)?=nil, onFail:((String) -> Void)?=nil) {
     self.httpPost(self.baseUrl + self.topicPicUrl, params: ["page":1,"pageSize":10], withLogin: true, onSuccess: { (data) -> () in
+      print(data)
+      onSuccess?()
+      
+      }) { (error) -> () in
+        onFail?("请求失败:" + error)
+        print("失败")
+    }
+  }
+  // 回复帖子
+  func replyTopic(data:[String:String],onSuccess:(() -> Void)?=nil, onFail:((String) -> Void)?=nil) {
+    let fid = data["fid"]//板块
+    let tid = data["tid"]//帖子
+    let replyId = data["replyId"]//回复id
+    let content = "happynewyear"// data["content"]//内容
+    print(fid)
+    print(tid)
+    let para = "{body:{json:[{fid:\(fid!),tid:\(tid),replyId:\(replyId!),title:\(content),content:[{type:0,infor:\(content)}]}]}}"
+    print(para)
+    self.httpPost(self.baseUrl + self.replyUrl, params: ["act":"reply","json":para], withLogin: true, onSuccess: { (data) -> () in
       print(data)
       onSuccess?()
       

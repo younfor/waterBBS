@@ -74,7 +74,7 @@ class Reply: NSObject {
     if type == "1" {
       self.insertImage(textView,img: UIImage.init(),big: true)
       // 插入大图
-      let imgView = UIImageView.init(frame: CGRectMake(0, textView.heightForContent() - UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.width))
+      let imgView = UIImageView.init(frame: CGRectMake(0, textView.heightForContent() - UIScreen.mainScreen().bounds.width + 5, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.width))
       imgView.sd_setImageWithURL(NSURL.init(string: text))
       textView.addSubview(imgView)
     } else if type == "0" {

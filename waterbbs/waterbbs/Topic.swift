@@ -11,6 +11,7 @@ import SwiftyJSON
 
 class Topic: NSObject {
   var topic_id:String!
+  var board_id:String!
   var title:String!
   var subject:String!
   var userAvatar:String!
@@ -25,6 +26,8 @@ class Topic: NSObject {
     super.init()
   }
   init(data:JSON) {
+    print(data)
+    self.board_id = String(data["board_id"])
     self.topic_id = String(data["topic_id"])
     self.title = data["title"].string
     self.subject = data["subject"].string

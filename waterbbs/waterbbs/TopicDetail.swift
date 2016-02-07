@@ -24,6 +24,7 @@ class TopicDetail: NSObject {
   var icon:String?
   var userTitle:String?
   var user_nick_name:String?
+  var reply_posts_id:String?
   // content
   var infors:[[String:String]]?
   var type:String?
@@ -36,6 +37,7 @@ class TopicDetail: NSObject {
     // topic 
     self.title = data["topic"]["title"].string
     self.topic_id = String(data["topic"]["topic_id"])
+    self.reply_posts_id = String(data["topic"]["reply_posts_id"])
     self.mobileSign = data["topic"]["mobileSign"].string
     self.create_date = data["topic"]["create_date"].string
     self.level = String(data["topic"]["level"])

@@ -54,7 +54,7 @@ class DetailHeaderView: UIView {
       if type == "1" {
         self.insertImage(UIImage.init(),big: true)
         // 插入大图
-        let imgView = UIImageView.init(frame: CGRectMake(0, self.textView.heightForContent() - self.frame.width , self.frame.width, self.frame.width))
+        let imgView = UIImageView.init(frame: CGRectMake(0, self.textView.heightForContent() - self.frame.width + 5 , self.frame.width, self.frame.width))
         imgView.sd_setImageWithURL(NSURL.init(string: text))
         self.textView.addSubview(imgView)
       } else if type == "0" {
