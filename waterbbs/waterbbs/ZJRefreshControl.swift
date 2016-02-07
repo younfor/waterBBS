@@ -66,8 +66,8 @@ class ZJRefreshControl: UIControl {
     //是否正在加载更多
     private var loadingmore = false;
     internal var loadmoreActivity:UIActivityIndicatorView!;
-    
-    
+    var loadmoreLabel:UILabel!;
+  
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder);
@@ -94,8 +94,7 @@ class ZJRefreshControl: UIControl {
         
         //旋转图标
         self.refreshActivity = UIActivityIndicatorView(activityIndicatorStyle: self.activityIndicatorViewStyle);
-        
-        
+
         self.addSubview(refreshActivity);
         self.sendSubviewToBack(refreshActivity);
         shapeTintColor = UIColor(red: 155.0 / 255.0, green: 162.0 / 255.0, blue: 172.0 / 255.0, alpha: 1.0)
@@ -174,6 +173,7 @@ class ZJRefreshControl: UIControl {
     
     //加载更多视图的添加
     private func loadmoreViewAdd() -> Void{
+      
         self.loadmoreActivity = UIActivityIndicatorView(activityIndicatorStyle: self.activityIndicatorViewStyle);
         self.loadmoreActivity.frame =  CGRectMake(0, self.scrollView.frame.size.height + 20, 36, 36);
         self.loadmoreActivity.alpha = 0;
@@ -184,7 +184,7 @@ class ZJRefreshControl: UIControl {
         self.scrollView.addSubview(self.loadmoreActivity);
         self.scrollView.sendSubviewToBack(self.loadmoreActivity);
         //给加载更多View留位置
-        scrollView.contentInset.bottom += 40;
+        scrollView.contentInset.bottom += 80;
     }
     
     //加载更多显示

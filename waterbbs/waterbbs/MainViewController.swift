@@ -17,10 +17,13 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
   var curPage = 1
   // 触摸
   var lastTouchY:CGFloat = 0
+  // tababar
+  var preIndex = 0
   // 轮播图片
   var topPicturesView :SDCycleScrollView!
   // tableview
   lazy var topics = Array<Topic>()
+  lazy var topTopicIds = Array<String>()
   static var forumID = ""
   let cell = "mainCell"
   override func viewDidLoad() {
@@ -44,6 +47,13 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
     self.tableView.registerNib(UINib.init(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: self.cell)
     self.tableView.rowHeight = 80
     self.loadTopics(true)
+    // footerview
+    let footer = UILabel.init(frame: CGRectMake(0, 20, self.tableView.frame.width, 20))
+    footer.text = "上拉会更多哦"
+    footer.textAlignment = NSTextAlignment.Center
+    footer.font = UIFont.systemFontOfSize(14)
+    footer.textColor = UIColor.grayColor()
+    self.tableView.tableFooterView = footer
     // 下拉刷新
     refresh = ZJRefreshControl(scrollView: tableView, refreshBlock: { () -> () in
       self.loadTopics(true)
@@ -97,12 +107,14 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
       // 更新head
       var pics = Array<String>()
       var titles = Array<String>()
+      self.topTopicIds.removeAll()
       // 最新图片-最大6张
       var i = 0
       for topic:Topic in datas {
         if topic.isPicTopic() {
           pics.append(topic.pic_path!)
           titles.append(topic.title)
+          self.topTopicIds.append(topic.topic_id!)
         }
         if i++ > 6 {
           break
@@ -136,6 +148,9 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
   
   // 轮播图片选中代理
   func cycleScrollView(cycleScrollView: SDCycleScrollView!, didSelectItemAtIndex index: Int) {
+    let vc = self.storyboard?.instantiateViewControllerWithIdentifier("detailVC") as! DetailViewController
+    vc.topicId = topTopicIds[index]//
+    self.navigationController?.pushViewController(vc, animated: true)
     print("选中\(index)")
   }
   // 滚动代理
@@ -195,8 +210,13 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
 // MARK - delegate
 extension MainViewController: UITabBarControllerDelegate {
   func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
-    MainViewController.forumID = ""
-    self.titleTop.text = "首页"
-    self.loadTopics(true)
+    if (self.tabBarController?.selectedIndex == preIndex) {
+      
+      MainViewController.forumID = ""
+      self.titleTop.text = "首页"
+      self.tableView.contentOffset = CGPointMake(0, 0)
+      self.loadTopics(true)
+    }
+    preIndex = (self.tabBarController?.selectedIndex)!
   }
 }
