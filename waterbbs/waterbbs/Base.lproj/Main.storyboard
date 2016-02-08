@@ -337,7 +337,7 @@
                             <outlet property="delegate" destination="mbQ-OA-4pk" id="CmD-8q-6uj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="dl4-Hh-ekK"/>
+                    <navigationItem key="navigationItem" title="发现" id="dl4-Hh-ekK"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Mx-L3-jwV" userLabel="First Responder" sceneMemberID="firstResponder"/>

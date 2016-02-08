@@ -29,6 +29,13 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
   let cell = "mainCell"
   override func viewDidLoad() {
     super.viewDidLoad()
+    //test
+//    HttpTool.getHttpTool().replyTopic([:], onSuccess: { () -> Void in
+//      //
+//      }) { (e) -> Void in
+//        print(e)
+//    }
+    //
     self.automaticallyAdjustsScrollViewInsets = false
     // 设置顶部动图
     self.initTopPicturesView()

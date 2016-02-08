@@ -195,6 +195,8 @@ public class Manager {
     {
         let mutableURLRequest = URLRequest(method, URLString, headers: headers)
         let encodedURLRequest = encoding.encode(mutableURLRequest, parameters: parameters).0
+      print(NSString(data:encodedURLRequest.HTTPBody!, encoding: NSUTF8StringEncoding)!
+)
         return request(encodedURLRequest)
     }
 

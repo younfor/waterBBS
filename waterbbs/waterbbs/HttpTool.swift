@@ -172,22 +172,25 @@ class HttpTool: NSObject {
   }
   // 回复帖子
   func replyTopic(data:[String:String],onSuccess:(() -> Void)?=nil, onFail:((String) -> Void)?=nil) {
-    let fid = data["fid"]//板块
-    let tid = data["tid"]//帖子
-    let replyId = data["replyId"]//回复id
-    let content = "happynewyear"// data["content"]//内容
-    print(fid)
-    print(tid)
-    let para = "{body:{json:[{fid:\(fid!),tid:\(tid),replyId:\(replyId!),title:\(content),content:[{type:0,infor:\(content)}]}]}}"
-    print(para)
-    self.httpPost(self.baseUrl + self.replyUrl, params: ["act":"reply","json":para], withLogin: true, onSuccess: { (data) -> () in
-      print(data)
-      onSuccess?()
-      
-      }) { (error) -> () in
-        onFail?("请求失败:" + error)
-        print("失败")
-    }
+    let fid = data["fid"]!//板块
+    let tid = data["tid"]!//帖子
+    let context = data["content"]!//内容
+    //NSData转换成NSString打印输出
+    let hh = "{\"body\":{\"json\":{\"isHidden\":0,\"content\":\"[{\\\"type\\\":0,\\\"infor\\\":\\\"\(context)\\\"}]\",\"fid\":\(fid),\"isQuote\":0,\"isShowPostion\":0,\"location\":\"\",\"isOnlyAuthor\":0,\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"aid\":\"\",\"tid\":\(tid),\"replyId\":0,\"isAnonymous\":0}}}"
+    let session = NSURLSession.sharedSession()
+    
+    let newURL = self.baseUrl + self.replyUrl
+    let body1 = "packageName=com.appbyme.app118563&accessToken=\(self.accessToken)&apphash=0c46853e&forumType=7&imei=862095023172437&platType=5&accessSecret=\(self.accessSecret)&sdkType=&sdkVersion=2.4.0&appName=%E6%B8%85%E6%B0%B4%E6%B2%B3%E7%95%94&json=\(hh.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)&forumKey=CBQJazn9Wws8Ivhr6U&imsi=460008158076181&act=reply"
+    let request = NSMutableURLRequest(URL: NSURL(string: newURL)!)
+    request.HTTPMethod = "POST"
+    request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+    request.HTTPBody = body1.dataUsingEncoding(NSUTF8StringEncoding)
+    let task = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+      let string = NSString(data: data!, encoding: NSUTF8StringEncoding)
+      print(string)
+      print("a")
+    })
+    task.resume()
   }
   // 网络公共函数
   func httpPost(url:String, var params:[String:AnyObject], withLogin:Bool,onSuccess:(JSON) -> Void, onFail:(String) -> Void) {
