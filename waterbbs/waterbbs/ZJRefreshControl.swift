@@ -43,7 +43,7 @@ class ZJRefreshControl: UIControl {
     private var tempAdd:CGFloat = 0;
     
     ///上拉多少距离开始加载更多
-    internal var loadMoreSpace:CGFloat = 70;
+    internal var loadMoreSpace:CGFloat = 30;
     
     //旋转的样式
     internal var refreshActivity:UIActivityIndicatorView!;

@@ -175,6 +175,7 @@ class HttpTool: NSObject {
     let fid = data["fid"]!//板块
     let tid = data["tid"]!//帖子
     let context = data["content"]!//内容
+<<<<<<< HEAD
     //计算参数
     let date = NSDate.init(timeIntervalSinceNow: 0)
     let a = date.timeIntervalSince1970 * 1000
@@ -185,8 +186,15 @@ class HttpTool: NSObject {
     let str = hash.substringWithRange(NSRange.init(location: 8, length: 8))
     print(str)
     
+=======
+    let pid = data["replyId"]!
+    var isQuote = 0
+    if pid != "0" {
+      isQuote = 1
+    }
+>>>>>>> 9183b7726a049a55e7629f392c1c487099f1193c
     //NSData转换成NSString打印输出
-    let hh = "{\"body\":{\"json\":{\"isHidden\":0,\"content\":\"[{\\\"type\\\":0,\\\"infor\\\":\\\"\(context)\\\"}]\",\"fid\":\(fid),\"isQuote\":0,\"isShowPostion\":0,\"location\":\"\",\"isOnlyAuthor\":0,\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"aid\":\"\",\"tid\":\(tid),\"replyId\":0,\"isAnonymous\":0}}}"
+    let hh = "{\"body\":{\"json\":{\"isHidden\":0,\"content\":\"[{\\\"type\\\":0,\\\"infor\\\":\\\"\(context)\\\"}]\",\"fid\":\(fid),\"isQuote\":\(isQuote),\"isShowPostion\":0,\"location\":\"\",\"isOnlyAuthor\":0,\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"aid\":\"\",\"tid\":\(tid),\"replyId\":\(pid),\"isAnonymous\":0}}}"
     let session = NSURLSession.sharedSession()
     
     let newURL = self.baseUrl + self.replyUrl
@@ -199,6 +207,7 @@ class HttpTool: NSObject {
       let string = NSString(data: data!, encoding: NSUTF8StringEncoding)
       print(string)
       print("a")
+      onSuccess?()
     })
     task.resume()
   }
