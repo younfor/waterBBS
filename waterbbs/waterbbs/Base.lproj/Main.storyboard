@@ -48,20 +48,28 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="首页" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Epd-tn-HjQ">
-                                    <rect key="frame" x="47" y="6.5" width="34" height="20.5"/>
+                                    <rect key="frame" x="47" y="6" width="34" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3ui-pG-Nih">
+                                    <rect key="frame" x="20" y="6.5" width="20" height="20"/>
+                                    <color key="color" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </activityIndicatorView>
                             </subviews>
                             <constraints>
                                 <constraint firstItem="Epd-tn-HjQ" firstAttribute="centerX" secondItem="t56-GE-Wfi" secondAttribute="centerX" id="S2e-6w-TQt"/>
                                 <constraint firstItem="Epd-tn-HjQ" firstAttribute="centerY" secondItem="t56-GE-Wfi" secondAttribute="centerY" id="VeC-UB-ONt"/>
+                                <constraint firstItem="3ui-pG-Nih" firstAttribute="leading" secondItem="t56-GE-Wfi" secondAttribute="leading" constant="20" id="hJO-mA-X7i"/>
+                                <constraint firstItem="3ui-pG-Nih" firstAttribute="centerY" secondItem="t56-GE-Wfi" secondAttribute="centerY" id="hfw-H4-bXn"/>
+                                <constraint firstItem="Epd-tn-HjQ" firstAttribute="leading" secondItem="3ui-pG-Nih" secondAttribute="trailing" constant="7" id="pmg-aA-MMl"/>
                             </constraints>
                         </view>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="refreshIndicator" destination="3ui-pG-Nih" id="pBN-55-sdj"/>
                         <outlet property="titleTop" destination="Epd-tn-HjQ" id="dqu-VN-E59"/>
                         <segue destination="lpU-uu-b8V" kind="push" id="cYv-mc-cvs"/>
                     </connections>

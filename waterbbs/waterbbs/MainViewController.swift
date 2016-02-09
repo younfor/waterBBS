@@ -11,6 +11,8 @@ import UIKit
 class MainViewController: UITableViewController,SDCycleScrollViewDelegate, ParallaxHeaderViewDelegate,UIGestureRecognizerDelegate {
   
   @IBOutlet weak var titleTop: UILabel!
+  
+  @IBOutlet weak var refreshIndicator: UIActivityIndicatorView!
   // 刷新控件
   var refresh:ZJRefreshControl!
   // 当前页数
@@ -21,6 +23,9 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
   var preIndex = 0
   // 轮播图片
   var topPicturesView :SDCycleScrollView!
+  // top
+  var topScrollView:UIScrollView!
+  var topHeaderView:UIView!
   // tableview
   lazy var topics = Array<Topic>()
   lazy var topTopicIds = Array<String>()
@@ -29,13 +34,7 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
   let cell = "mainCell"
   override func viewDidLoad() {
     super.viewDidLoad()
-    //test
-//    HttpTool.getHttpTool().replyTopic([:], onSuccess: { () -> Void in
-//      //
-//      }) { (e) -> Void in
-//        print(e)
-//    }
-    //
+
     self.automaticallyAdjustsScrollViewInsets = false
     // 设置顶部动图
     self.initTopPicturesView()
@@ -62,14 +61,7 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
     footer.font = UIFont.systemFontOfSize(14)
     footer.textColor = UIColor.grayColor()
     self.tableView.tableFooterView = footer
-    // 下拉刷新
-    refresh = ZJRefreshControl(scrollView: tableView, refreshBlock: { () -> () in
-      self.curPage = 1
-      self.loadTopics(true)
-      }, loadmoreBlock: { () -> () in
-        print("上拉加载更多")
-        self.loadMore()
-    })
+
     // 代理
     tabBarController?.delegate = self
     // 通知
@@ -79,6 +71,7 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
     let obj  = noti.object as! [String:String]
     MainViewController.forumID = obj["id"]!
     print("准备展示\(MainViewController.forumID)")
+    self.preIndex = 0
     self.curPage = 1
     self.titleTop.text = obj["name"]!
     self.loadTopics(true)
@@ -109,9 +102,10 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
       self.topics.appendContentsOf(datas)
       self.tableView.reloadData()
       if clear {
-        self.refresh.endRefreshing()
+        self.refreshIndicator.stopAnimating()
+        self.tableView.contentOffset = CGPointMake(0, 0)
       } else {
-        self.refresh.endLoadingmore()
+        self.refreshIndicator.stopAnimating()
       }
       
       // 更新head
@@ -152,10 +146,14 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
     self.topPicturesView.titleLabelTextFont = UIFont(name: "STHeitiSC-Medium", size: 21)
     self.topPicturesView.pageControlStyle = SDCycleScrollViewPageContolStyleClassic
     // 添加拉伸特效
-    print(self.topPicturesView.frame.height)
-    let headerSubview: ParallaxHeaderView = ParallaxHeaderView.parallaxHeaderViewWithSubView(self.topPicturesView, forSize: CGSizeMake(self.tableView.frame.width, self.topPicturesView.frame.height)) as! ParallaxHeaderView
-    headerSubview.delegate  = self
-    self.tableView.tableHeaderView = headerSubview
+
+    topHeaderView = UIView.init(frame: CGRectMake(0, 0, topPicturesView.frame.width, topPicturesView.frame.height))
+    topScrollView = UIScrollView.init(frame: topHeaderView.bounds)
+    topScrollView.addSubview(topPicturesView)
+    topHeaderView.addSubview(topScrollView)
+    //设置内容层的自动布局并存储
+    topPicturesView.autoresizingMask = [UIViewAutoresizing.FlexibleLeftMargin,UIViewAutoresizing.FlexibleRightMargin,UIViewAutoresizing.FlexibleTopMargin,UIViewAutoresizing.FlexibleBottomMargin,UIViewAutoresizing.FlexibleHeight,UIViewAutoresizing.FlexibleWidth]
+    tableView.tableHeaderView = topHeaderView
   }
   
   // 轮播图片选中代理
@@ -166,16 +164,31 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
     self.navigationController?.pushViewController(vc, animated: true)
     print("选中\(index)")
   }
+  let ktopHeight:CGFloat = 154
   // 滚动代理
   override func scrollViewDidScroll(scrollView: UIScrollView) {
     //防止越界
-    if scrollView.contentOffset.y < -100 {
-      scrollView.contentOffset.y = -100
+    if scrollView.contentOffset.y < -60 {
+      scrollView.contentOffset.y = -60
+      if refreshIndicator.isAnimating() == false {
+        refreshIndicator.startAnimating()
+        curPage = 1
+        loadTopics(true)
+      }
     }
     //Parallax效果
-    let header = self.tableView.tableHeaderView as! ParallaxHeaderView
-    //header.layoutHeaderViewForScrollViewOffset(scrollView.contentOffset)
-    
+    let header = self.tableView.tableHeaderView!
+    let y = scrollView.contentOffset.y
+    var f = header.frame
+    if (y<0) {
+      let delta = fabs(min(y, 0))
+      f.origin.y -= delta
+      f.size.height += delta
+      topScrollView.frame = f
+      topHeaderView.clipsToBounds = false
+    } else {
+      topHeaderView.clipsToBounds = true
+    }
     //NavBar及titleLabel透明度渐变
     let color = UIColor(red: 1/255.0, green: 131/255.0, blue: 230/255.0, alpha: 1)
     let offsetY = scrollView.contentOffset.y
@@ -208,6 +221,10 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell:MainTableViewCell = tableView.dequeueReusableCellWithIdentifier(self.cell) as! MainTableViewCell
     cell.setData(self.topics[indexPath.row])
+    if (indexPath.row == self.topics.count - 1) && (self.refreshIndicator.isAnimating() == false){
+      self.loadMore()
+      
+    }
     return cell
   }
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -227,8 +244,10 @@ extension MainViewController: UITabBarControllerDelegate {
     if (self.tabBarController?.selectedIndex == preIndex) {
       
       MainViewController.forumID = ""
+      curPage = 1
       self.titleTop.text = "首页"
-      self.tableView.contentOffset = CGPointMake(0, 0)
+      
+      refreshIndicator.startAnimating()
       self.loadTopics(true)
     }
     preIndex = (self.tabBarController?.selectedIndex)!
