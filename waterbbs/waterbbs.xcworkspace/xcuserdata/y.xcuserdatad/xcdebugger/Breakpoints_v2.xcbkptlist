@@ -2,4 +2,118 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "waterbbs/HttpTool.swift"
+            timestampString = "476699076.147159"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
+            landmarkName = "replyTopic(_:onSuccess:onFail:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "waterbbs/HttpTool.swift"
+            timestampString = "476699076.147159"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
+            landmarkName = "replyTopic(_:onSuccess:onFail:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "waterbbs/HttpTool.swift"
+            timestampString = "476699076.147159"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
+            landmarkName = "replyTopic(_:onSuccess:onFail:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "waterbbs.HttpTool.replyTopic (waterbbs.HttpTool)(Swift.Dictionary&lt;Swift.String, Swift.String&gt;, onSuccess : Swift.Optional&lt;() -&gt; ()&gt;, onFail : Swift.Optional&lt;(Swift.String) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "waterbbs"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/y/waterBBS/waterbbs/waterbbs/HttpTool.swift"
+                  timestampString = "476699076.21636"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "202"
+                  endingLineNumber = "202"
+                  offsetFromSymbolStart = "4804">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "waterbbs.HttpTool.(replyTopic (waterbbs.HttpTool) -&gt; (Swift.Dictionary&lt;Swift.String, Swift.String&gt;, onSuccess : Swift.Optional&lt;() -&gt; ()&gt;, onFail : Swift.Optional&lt;(Swift.String) -&gt; ()&gt;) -&gt; ()).(closure #1)"
+                  moduleName = "waterbbs"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/y/waterBBS/waterbbs/waterbbs/HttpTool.swift"
+                  timestampString = "476699076.217365"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "202"
+                  endingLineNumber = "202"
+                  offsetFromSymbolStart = "506">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "waterbbs/HttpTool.swift"
+            timestampString = "476699076.147159"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
+            landmarkName = "replyTopic(_:onSuccess:onFail:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "waterbbs/HttpTool.swift"
+            timestampString = "476699076.147159"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
+            landmarkName = "replyTopic(_:onSuccess:onFail:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

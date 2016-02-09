@@ -175,12 +175,22 @@ class HttpTool: NSObject {
     let fid = data["fid"]!//板块
     let tid = data["tid"]!//帖子
     let context = data["content"]!//内容
+    //计算参数
+    let date = NSDate.init(timeIntervalSinceNow: 0)
+    let a = date.timeIntervalSince1970 * 1000
+    let time = NSString.init(format: "%f", a)
+    let authkey = "appbyme_key"
+    let authString = time.substringWithRange(NSRange.init(location: 0, length: 5)) + authkey
+    let hash = authString.md5 as NSString
+    let str = hash.substringWithRange(NSRange.init(location: 8, length: 8))
+    print(str)
+    
     //NSData转换成NSString打印输出
     let hh = "{\"body\":{\"json\":{\"isHidden\":0,\"content\":\"[{\\\"type\\\":0,\\\"infor\\\":\\\"\(context)\\\"}]\",\"fid\":\(fid),\"isQuote\":0,\"isShowPostion\":0,\"location\":\"\",\"isOnlyAuthor\":0,\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"aid\":\"\",\"tid\":\(tid),\"replyId\":0,\"isAnonymous\":0}}}"
     let session = NSURLSession.sharedSession()
     
     let newURL = self.baseUrl + self.replyUrl
-    let body1 = "packageName=com.appbyme.app118563&accessToken=\(self.accessToken)&apphash=0c46853e&forumType=7&imei=862095023172437&platType=5&accessSecret=\(self.accessSecret)&sdkType=&sdkVersion=2.4.0&appName=%E6%B8%85%E6%B0%B4%E6%B2%B3%E7%95%94&json=\(hh.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)&forumKey=CBQJazn9Wws8Ivhr6U&imsi=460008158076181&act=reply"
+    let body1 = "packageName=com.appbyme.app118563&accessToken=\(self.accessToken)&apphash=\(str)&forumType=7&imei=862095023172437&platType=5&accessSecret=\(self.accessSecret)&sdkType=&sdkVersion=2.4.0&appName=%E6%B8%85%E6%B0%B4%E6%B2%B3%E7%95%94&json=\(hh.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)&forumKey=CBQJazn9Wws8Ivhr6U&imsi=460008158076181&act=reply"
     let request = NSMutableURLRequest(URL: NSURL(string: newURL)!)
     request.HTTPMethod = "POST"
     request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")

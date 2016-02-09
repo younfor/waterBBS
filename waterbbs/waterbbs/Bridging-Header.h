@@ -14,4 +14,6 @@
 #import "SWRevealViewController.h" //滑动侧栏
 #import "SDWebImage/UIImageView+WebCache.h"
 #import "NSString+Date.h"
+#import <CommonCrypto/CommonDigest.h>
+
 #endif /* Bridging_Header_h */
