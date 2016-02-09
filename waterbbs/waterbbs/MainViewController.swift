@@ -64,6 +64,7 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
     self.tableView.tableFooterView = footer
     // 下拉刷新
     refresh = ZJRefreshControl(scrollView: tableView, refreshBlock: { () -> () in
+      self.curPage = 1
       self.loadTopics(true)
       }, loadmoreBlock: { () -> () in
         print("上拉加载更多")
@@ -78,6 +79,7 @@ class MainViewController: UITableViewController,SDCycleScrollViewDelegate, Paral
     let obj  = noti.object as! [String:String]
     MainViewController.forumID = obj["id"]!
     print("准备展示\(MainViewController.forumID)")
+    self.curPage = 1
     self.titleTop.text = obj["name"]!
     self.loadTopics(true)
   }

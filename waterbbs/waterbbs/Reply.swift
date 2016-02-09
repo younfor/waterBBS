@@ -47,7 +47,7 @@ class Reply: NSObject {
     self.posts_date = data["posts_date"].string
     self.status = String(data["status"])
     self.is_quote = String(data["is_quote"])
-    self.reply_id = String(data["reply_id"])
+    self.reply_posts_id = String(data["reply_posts_id"])
     self.infors = [[String:String]]()
     for content in data["reply_content"] {
       self.infors?.append(["infor":(content.1)["infor"].string!,"type":String((content.1)["type"])])
