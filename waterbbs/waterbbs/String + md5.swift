@@ -8,7 +8,7 @@ extension String {
     
     CC_MD5(str!, strLen, result);
     
-    var hash = NSMutableString();
+    let hash = NSMutableString();
     for i in 0 ..< digestLen {
       hash.appendFormat("%x", result[i]);
     }

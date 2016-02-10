@@ -67,9 +67,13 @@
 		18ECDD601C317F8C00F88B63 /* MsgGroupHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ECDD5F1C317F8C00F88B63 /* MsgGroupHeaderCell.swift */; };
 		18ECDD621C317FA000F88B63 /* MsgGroupContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ECDD611C317FA000F88B63 /* MsgGroupContentCell.swift */; };
 		18F203FA1C23CB7800E38517 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F203F91C23CB7800E38517 /* GroupViewController.swift */; };
-		18FD89581C69D56E0037DEE2 /* String + md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FD89571C69D56E0037DEE2 /* String + md5.swift */; };
+<<<<<<< HEAD
+		18FD895A1C69DA720037DEE2 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FD89591C69DA720037DEE2 /* String+Extension.swift */; };
 		18FD895D1C69E0B70037DEE2 /* FoundNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FD895C1C69E0B70037DEE2 /* FoundNavViewController.swift */; };
 		18FD895F1C69E13F0037DEE2 /* FoundTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FD895E1C69E13F0037DEE2 /* FoundTableViewController.swift */; };
+=======
+		18FD89581C69D56E0037DEE2 /* String + md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FD89571C69D56E0037DEE2 /* String + md5.swift */; };
+>>>>>>> e7443ee356c3ac21b969e24d9425d6d4ab47a473
 		FF97EC53CC82B83FB6822394 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B75D546B10532AA7557FC6 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -173,9 +177,13 @@
 		18ECDD5F1C317F8C00F88B63 /* MsgGroupHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgGroupHeaderCell.swift; sourceTree = "<group>"; };
 		18ECDD611C317FA000F88B63 /* MsgGroupContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgGroupContentCell.swift; sourceTree = "<group>"; };
 		18F203F91C23CB7800E38517 /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
-		18FD89571C69D56E0037DEE2 /* String + md5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + md5.swift"; sourceTree = "<group>"; };
+<<<<<<< HEAD
+		18FD89591C69DA720037DEE2 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		18FD895C1C69E0B70037DEE2 /* FoundNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundNavViewController.swift; sourceTree = "<group>"; };
 		18FD895E1C69E13F0037DEE2 /* FoundTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundTableViewController.swift; sourceTree = "<group>"; };
+=======
+		18FD89571C69D56E0037DEE2 /* String + md5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + md5.swift"; sourceTree = "<group>"; };
+>>>>>>> e7443ee356c3ac21b969e24d9425d6d4ab47a473
 		1A6488AE28C1ECD7F4FE5804 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		34B75D546B10532AA7557FC6 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80F3FB5D1C9BBFBAA5608887 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -376,7 +384,11 @@
 				1816FE8C1C23006D0010B2A4 /* NSString+Date.h */,
 				1816FE8D1C23006D0010B2A4 /* NSString+Date.m */,
 				18C35D8C1C37EF3B004C7ADF /* Extention+UITextView.swift */,
+<<<<<<< HEAD
+				18FD89591C69DA720037DEE2 /* String+Extension.swift */,
+=======
 				18FD89571C69D56E0037DEE2 /* String + md5.swift */,
+>>>>>>> e7443ee356c3ac21b969e24d9425d6d4ab47a473
 			);
 			name = framework;
 			sourceTree = "<group>";
@@ -755,6 +767,7 @@
 				188CF7B11C1C4A9D006B7537 /* UINavigationBar+Awesome.m in Sources */,
 				188CF7AE1C1C4A81006B7537 /* ParallaxHeaderView.m in Sources */,
 				18D736821C25908000DBF18E /* DBManager.swift in Sources */,
+				18FD895A1C69DA720037DEE2 /* String+Extension.swift in Sources */,
 				1801D38D1C1E8E3600CCD31E /* TabBarViewController.swift in Sources */,
 				1816FE891C22E91B0010B2A4 /* MainTableViewCell.swift in Sources */,
 				188CF79B1C1C3F4C006B7537 /* UIView+SDExtension.m in Sources */,

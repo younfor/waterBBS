@@ -348,7 +348,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20KB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oUO-Zc-CkB">
-                                                    <rect key="frame" x="282.5" y="12" width="37.5" height="18"/>
+                                                    <rect key="frame" x="266.5" y="12" width="37.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="0.41899245689999998" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -358,7 +358,7 @@
                                                 <constraint firstItem="Zox-Yc-L3T" firstAttribute="centerY" secondItem="2AK-UP-JtH" secondAttribute="centerY" id="3A3-Ds-Fsj"/>
                                                 <constraint firstItem="oUO-Zc-CkB" firstAttribute="centerY" secondItem="2AK-UP-JtH" secondAttribute="centerY" id="9hi-jL-cyV"/>
                                                 <constraint firstItem="Zox-Yc-L3T" firstAttribute="leading" secondItem="2AK-UP-JtH" secondAttribute="leadingMargin" constant="8" id="Mmm-zt-l1M"/>
-                                                <constraint firstItem="oUO-Zc-CkB" firstAttribute="trailing" secondItem="2AK-UP-JtH" secondAttribute="trailingMargin" constant="8" id="Owf-AS-yPZ"/>
+                                                <constraint firstItem="oUO-Zc-CkB" firstAttribute="trailing" secondItem="2AK-UP-JtH" secondAttribute="trailingMargin" constant="-8" id="Owf-AS-yPZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

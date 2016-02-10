@@ -175,12 +175,6 @@ class HttpTool: NSObject {
     let fid = data["fid"]!//板块
     let tid = data["tid"]!//帖子
     let context = data["content"]!//内容
-    let pid = data["replyId"]!
-    var isQuote = 0
-    if pid != "0" {
-      isQuote = 1
-    }
-    print(pid)
     //计算参数
     let date = NSDate.init(timeIntervalSinceNow: 0)
     let a = date.timeIntervalSince1970 * 1000
@@ -190,6 +184,12 @@ class HttpTool: NSObject {
     let hash = authString.md5 as NSString
     let str = hash.substringWithRange(NSRange.init(location: 8, length: 8))
     print(str)
+
+    let pid = data["replyId"]!
+    var isQuote = 0
+    if pid != "0" {
+      isQuote = 1
+    }
     //NSData转换成NSString打印输出
     let hh = "{\"body\":{\"json\":{\"isHidden\":0,\"content\":\"[{\\\"type\\\":0,\\\"infor\\\":\\\"\(context)\\\"}]\",\"fid\":\(fid),\"isQuote\":\(isQuote),\"isShowPostion\":0,\"location\":\"\",\"isOnlyAuthor\":0,\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"aid\":\"\",\"tid\":\(tid),\"replyId\":\(pid),\"isAnonymous\":0}}}"
     let session = NSURLSession.sharedSession()
