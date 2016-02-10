@@ -13,6 +13,20 @@ class SideMenuViewController: UIViewController,UITableViewDataSource,UITableView
   @IBOutlet weak var tableview: UITableView!
   @IBOutlet weak var userLabel: UILabel!
   @IBOutlet weak var headImage: UIImageView!
+  
+  @IBOutlet weak var login: UIButton!
+  
+  @IBAction func onLogin(sender: AnyObject) {
+    if User.getUser().load() == false {
+      User.getUser().showLogin()
+      login.setTitle("登陆", forState: UIControlState.Normal)
+    } else {
+      User.getUser().clear()
+      self.headImage.image = UIImage()
+      self.userLabel.text = ""
+      login.setTitle("退出", forState: UIControlState.Normal)
+    }
+  }
   // 数据
   lazy var forums = DBManager.DBGroupListWithCollected()
   let cell = "sideCell"
@@ -25,11 +39,15 @@ class SideMenuViewController: UIViewController,UITableViewDataSource,UITableView
     if User.getUser().load() {
       self.userLabel.text = User.getUser().userName
       self.headImage.sd_setImageWithURL(NSURL.init(string: User.getUser().avatar!))
+      login.setTitle("退出", forState: UIControlState.Normal)
     } else {
       self.userLabel.text = "未登录"
+      login.setTitle("登陆", forState: UIControlState.Normal)
     }
     // 接收更新通知
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "sideReload", name: "sideReload", object: nil)
+    // 登陆按钮设置
+    
   }
   // notify
   func sideReload() {

@@ -30,6 +30,8 @@ class DetailHeaderView: UIView {
       self.icon.sd_setImageWithURL(NSURL.init(string: url))
     }
     if data.title == nil {
+      // 访问未登录数据
+      User.getUser().showLogin()
       return
     }
     self.topicTitle.text = data.title!
@@ -38,6 +40,7 @@ class DetailHeaderView: UIView {
     // 计算时间
     self.mobileFrom.text = "\(self.time(data.create_date!))"
     // 主要内容
+    self.textView.text = ""
     for data in data.infors! {
       self.content(data)
     }

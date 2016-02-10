@@ -42,10 +42,17 @@ class User: NSObject {
             return true
         }
     }
+    // 显示登陆
+  func showLogin() {
+    let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("loginSB")
+    UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(vc, animated: true, completion: nil)
+  }
     // 退出登录
     func clear() {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setObject(nil, forKey: "accessToken")
+        defaults.setObject(nil, forKey: "userName")
+        defaults.setObject(nil, forKey: "avatar")
         
     }
     // 提取

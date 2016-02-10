@@ -27,10 +27,11 @@ class DetailViewController: UIViewController,UITableViewDataSource ,UITableViewD
     if replyLabel.text != "" {
       HttpTool.getHttpTool().replyTopic(["fid":forumId!,"tid":topicId!,"replyId":pid,"content":replyLabel.text!], onSuccess: { () -> Void in
         print("回复成功")
+        self.loadData(true)
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
           // 更UI
           UIAlertView.init(title: "", message: "回复成功", delegate: self, cancelButtonTitle: "确定").show()
-          self.loadData(true)
+          
         })
         
         
@@ -72,8 +73,11 @@ class DetailViewController: UIViewController,UITableViewDataSource ,UITableViewD
   }
   // 上拉加载更多
   func loadMore() {
-    self.curPage++
-    self.loadData(false)
+    if (UIScreen.mainScreen().bounds.height - CGRectGetMaxY(self.replyLabel.frame) < 30) {
+      self.curPage++
+      self.loadData(false)
+    }
+    
   }
   func scrollViewDidScroll(scrollView: UIScrollView) {
     if self.replyLabel.isFirstResponder() {
@@ -105,6 +109,9 @@ class DetailViewController: UIViewController,UITableViewDataSource ,UITableViewD
   }
   @IBOutlet weak var titleLabel: UILabel!
   func loadData(clear:Bool) {
+    if clear {
+      curPage = 1
+    }
     HttpTool.getHttpTool().topicDetail(self.topicId!, page: curPage, onSuccess: { (data) -> Void in
       // 更新表
       if clear {
@@ -113,8 +120,11 @@ class DetailViewController: UIViewController,UITableViewDataSource ,UITableViewD
         self.titleLabel.text = data.forumName
         self.header!.setData(data)
         NSOperationQueue.mainQueue().addOperationWithBlock({  [unowned self] () -> Void in
-          self.header?.frame = CGRectMake(0, 0, self.view.frame.width, self.header!.height!)
-          self.tableview.tableHeaderView = self.header!
+          if let h = self.header?.height {
+            self.header?.frame = CGRectMake(0, 0, self.view.frame.width, h)
+            self.tableview.tableHeaderView = self.header!
+          }
+         
           })
 
       }

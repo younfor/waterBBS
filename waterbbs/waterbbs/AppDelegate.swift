@@ -16,9 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        // 测试
-        HttpTool.getHttpTool().login("cq361106306", password: "199288")
-        HttpTool.getHttpTool().test()
+//        // 测试
+//        HttpTool.getHttpTool().login("cq361106306", password: "199288")
+//        HttpTool.getHttpTool().test()
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         return true
     }
